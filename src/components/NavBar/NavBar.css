@@ -1,0 +1,67 @@
+.navbar {
+  padding: 0 3rem;
+  align-items: center;
+  justify-content: space-between;
+  height: 7rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-bottom: 0.2rem solid #eee;
+  border-radius: 0 1rem 0.4rem rgb(126, 126, 126);
+  background-color: var(--white);
+}
+.nav-heading {
+  align-items: center;
+}
+.nav-logo {
+  height: 5rem;
+}
+.nav-heading-small {
+  font-size: 2rem;
+  color: var(--primary);
+}
+.nav-search {
+  position: relative;
+  align-items: center;
+}
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  color: var(--grey-color);
+}
+.nav-input {
+  height: 3.2rem;
+  width: 30rem;
+  padding-left: 4.5rem;
+  border: 0.2rem solid var(--grey-light);
+  border-radius: 0.5rem;
+}
+.saved-item-container {
+  gap: 1.4rem;
+  align-items: center;
+}
+.btn-login {
+  margin-right: 4rem;
+}
+.saved-item {
+  height: 3.5rem;
+  align-items: flex-end;
+  position: relative;
+}
+.no-badge {
+  position: absolute;
+  top: 0.4rem;
+  left: 1.5rem;
+  height: 1.8rem;
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--white);
+  width: 1.8rem;
+  border-radius: 50%;
+  background-color: var(--primary);
+}
+.nav-icon {
+  color: var(--grey-color);
+  margin-right: 1.2rem;
+}
