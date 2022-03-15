@@ -33,7 +33,7 @@ const NavBar= ()=>{
             <span className="no-badge">3</span>
           </div>
           <div className="saved-item flex-row">
-            <i class="fas fa-sign-in-alt icon-md nav-icon"></i>
+            <i className="fas fa-sign-in-alt icon-md nav-icon"></i>
            </div>
         </div>
       </nav>
