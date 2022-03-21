@@ -8,23 +8,92 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    title: "You Can WIN",
-    author: "Shiv Khera",
-    price: "5000",
-    categoryName: "non-fiction",
+    title: "Puma",
+    image:
+      "https://res.cloudinary.com/doohtm4bs/image/upload/v1647415712/E-commerce/ProductList/Black_Puma_ygnph3.webp",
+    description: "Men Black Clasp Sneakers",
+    price: 800,
+    rating: 4.2,
+    categoryName: "puma",
   },
   {
     _id: uuid(),
-    title: "You are Winner",
-    author: "Junaid Qureshi",
-    price: "3000",
-    categoryName: "horror",
+    title: "Nike",
+    image:
+      "https://res.cloudinary.com/doohtm4bs/image/upload/v1647416495/E-commerce/ProductList/Nike_1_wmptk8.webp",
+    description: "Men Black  Air Max Sneakers ",
+    price: 650,
+    rating: 3.7,
+    categoryName: "nike",
   },
   {
     _id: uuid(),
-    title: "Think and Grow Rich",
-    author: "Shiv Khera",
-    price: "1000",
-    categoryName: "fiction",
+    title: "HRX",
+    image:
+      "https://res.cloudinary.com/doohtm4bs/image/upload/v1647417516/E-commerce/ProductList/hrx_1_idbaoi.webp",
+    description: "Men Black & Charcoal Grey Sneaker",
+    price: 890,
+    rating: 2.5,
+    categoryName: "hrx",
+  },
+  {
+    _id: uuid(),
+    title: "Puma",
+    image:
+      "https://res.cloudinary.com/doohtm4bs/image/upload/v1647415711/E-commerce/ProductList/Blue_Puma_jlsbom.webp",
+    description: "Men Blue Solid Suede Sneakers",
+    price: 400,
+    rating: 1.8,
+    categoryName: "puma",
+  },
+  {
+    _id: uuid(),
+    title: "Nike",
+    image:
+      "https://res.cloudinary.com/doohtm4bs/image/upload/v1647416494/E-commerce/ProductList/Nike_2_lbts3p.webp",
+    description: "Men Orange Air Presto Sneakers",
+    price: 175,
+    rating: 4.9,
+    categoryName: "nike",
+  },
+  {
+    _id: uuid(),
+    title: "HRX",
+    image:
+      "https://res.cloudinary.com/doohtm4bs/image/upload/v1647417516/E-commerce/ProductList/hrx_2_wt3aor.webp",
+    description: "Unisex Olive Green Gamescape Sneakers",
+    price: 950,
+    rating: 4.4,
+    categoryName: "hrx",
+  },
+  {
+    _id: uuid(),
+    title: "Puma",
+    image:
+      "https://res.cloudinary.com/doohtm4bs/image/upload/v1647415712/E-commerce/ProductList/Black2_puma_tdo8sw.webp",
+    description: "Men Black One8 Shuffle Mid Top Sneakers",
+    price: 200,
+    rating: 2.1,
+    categoryName: "puma",
+  },
+  {
+    _id: uuid(),
+    title: "Nike",
+    image:
+      "https://res.cloudinary.com/doohtm4bs/image/upload/v1647416494/E-commerce/ProductList/Nike_3_yamyox.webp",
+    description: "Men White Solid  Mid-Top Sneakers",
+    price: 350,
+    rating: 3.4,
+    categoryName: "nike",
+  },
+  {
+    _id: uuid(),
+    title: "Adidas",
+    image:
+      "https://res.cloudinary.com/doohtm4bs/image/upload/v1647417991/E-commerce/ProductList/adidas_pugbfc.webp",
+    description: "Men Blue Retropy F2 Sneakers",
+    price: 990,
+    rating: 3.9,
+    categoryName: "adidas",
   },
 ];
