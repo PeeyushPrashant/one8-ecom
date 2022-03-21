@@ -1,0 +1,32 @@
+.filters {
+  flex-basis: 25rem;
+  padding: 0 3rem;
+  gap: 1rem;
+  position: sticky;
+  height: 100%;
+  top: 11.5rem;
+}
+.sub-section {
+  align-items: center;
+  gap: 12rem;
+}
+.heading {
+  margin: 0;
+}
+.clear-out {
+  cursor: pointer;
+}
+.price-range {
+  width: 90%;
+  justify-content: space-between;
+}
+.range {
+  width: 90%;
+}
+.list {
+  list-style: none;
+  font-size: 1.6rem;
+  gap: 1rem;
+  margin: 0;
+  padding-left: 0;
+}
