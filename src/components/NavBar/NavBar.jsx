@@ -1,10 +1,9 @@
 import  "./NavBar.css";
-
+import { Link } from "react-router-dom";
 const NavBar= ()=>{
     return (
-
-        <nav className="navbar flex-row">
-        <a href="">
+       <nav className="navbar flex-row">
+          <Link to="/">
           <div className="nav-heading flex-row">
             <img
               src="https://res.cloudinary.com/doohtm4bs/image/upload/v1647335661/E-commerce/landingPage/one8-logo_psljqh.png"
@@ -13,7 +12,7 @@ const NavBar= ()=>{
             />
             <small className="nav-heading-small">Store</small>
           </div>
-        </a>
+          </Link>
         <div className="nav-search flex-row">
           <i className="fas fa-search search-icon"></i>
           <input type="text" className="nav-input" placeholder="Type to search" />

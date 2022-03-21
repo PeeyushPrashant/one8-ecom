@@ -29,11 +29,11 @@
 }
 .product-rating {
   padding-right: 1.5rem;
-  color: black;
+  color: var(--black);
   font-size: 1.5rem;
 }
 .price-tag {
-  color: black;
+  color: var(--black);
 }
 .sec4 {
   border-radius: 0.1rem solid var(--secondary);

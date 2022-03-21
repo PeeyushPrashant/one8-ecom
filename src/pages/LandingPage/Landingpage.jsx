@@ -1,5 +1,6 @@
 import "./LandingPage.css"
 import NavBar from "../../components/NavBar/NavBar";
+import { Link } from "react-router-dom";
 const LandingPage= ()=>{
 return (
    <div>
@@ -11,12 +12,12 @@ return (
             alt="sneaker"
             className="home-img"
           />
-          <section className="main-text absolute flex-col">
+         <section className="main-text absolute flex-col">
             <h1 className="main-text-normal">The One8 Affair</h1>
             <h1 className="main-text-normal">Get Ready Get Better</h1>
-            <a href="/pages/productList/productlist.html"
-              ><button className="btn btn-primary">Shop Now</button></a
-            >
+              <Link to="/products">
+              <button className="btn btn-primary">Shop Now</button>
+              </Link>
           </section>
         </div>
         <h1 className="sub-head">Featured Brands in one8 store</h1>

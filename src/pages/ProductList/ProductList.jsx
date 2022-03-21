@@ -58,14 +58,14 @@ const ProductList= ()=>{
             <main class="main flex-row">
                 <Aside/>
                 <div class="product-container">
-                  {filteredProduct.map((item)=>{
+                  {filteredProduct.map(({image,title,price,description,rating,_id})=>{
                       return (
                           <ProductCard
-                          image={item.image}
-                          title={item.title}
-                         price={item.price}
-                         description={item.description}
-                         rating={item.rating}
+                          image={image}
+                          title={title}
+                         price={price}
+                         description={description}
+                         rating={rating}
                           />
                       );
                   })}
