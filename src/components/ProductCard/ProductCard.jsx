@@ -1,6 +1,6 @@
 import "./ProductCard.css"
-
-const ProductCard=({image,title,price,description,rating})=>{
+import { Link } from "react-router-dom";
+const ProductCard=({image,title,price,description,rating,addToCartHandler,path})=>{
 return (
     
           <div class="card relative">
@@ -21,7 +21,10 @@ return (
 
             <section className="sec-3">{description}</section>
             <footer>
-              <button className="btn productCard-button  flex-row absolute">Add to Cart</button>
+              
+              <button className="btn productCard-button  flex-row absolute"
+              onClick={addToCartHandler}
+              >Add to Cart</button>
               
             </footer>
         </div>
