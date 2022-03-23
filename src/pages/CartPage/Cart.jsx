@@ -1,7 +1,6 @@
 import "./Cart.css";
 
-const Cart=()=>{
+export const Cart=()=>{
 
 }
 
-export default Cart;

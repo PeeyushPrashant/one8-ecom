@@ -7,7 +7,7 @@ import {useFilter} from "../../hooks/useFilter";
 import {useToken} from "../../hooks/useToken"
 import { useNavigate } from "react-router-dom";
 
-const ProductList= ()=>{
+export const ProductList= ()=>{
     const {state}= useProductList();
     const {filterstate}= useFilter();
     const initialProduct= state.initialProduct;
@@ -89,4 +89,3 @@ const ProductList= ()=>{
     );
 }
 
-export default ProductList;

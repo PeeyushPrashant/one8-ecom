@@ -3,14 +3,14 @@ import "./login.css"
 import { useToken } from "../../hooks/useToken"
 import axios from "axios"
 import {  useNavigate } from "react-router-dom"
-const Login = ()=>{
+export const Login = ()=>{
   const {setToken}=useToken();
   const testCredentials= { email: "adarshbalika@gmail.com",password: "adarshbalika"};
   let navigate= useNavigate();
   const loginHandler=async()=>{
     try{
       const response = await axios.post('/api/auth/login', {...testCredentials});
-      if(response.status===200)
+      if(response.status===200 || response.status===201)
       {
         localStorage.setItem("login",JSON.stringify({token:response.data.encodedToken}));
 
@@ -71,4 +71,3 @@ return(
 }
 
 
-export default Login;
