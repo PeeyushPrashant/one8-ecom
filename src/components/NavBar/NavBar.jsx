@@ -1,6 +1,9 @@
 import  "./NavBar.css";
 import { Link } from "react-router-dom";
+import { useCart } from "../../hooks/useCart";
 const NavBar= ()=>{
+  const {state}= useCart();
+  const cart= state.cartData;
     return (
        <nav className="navbar flex-row">
           <Link to="/">
@@ -26,10 +29,11 @@ const NavBar= ()=>{
             <span className="no-badge">1</span>
           </div>
           <div className="saved-item flex-row">
-            <a href="/pages/cart_management/cart.html"
-              ><i className="fas fa-shopping-cart icon-md nav-icon"></i
-            ></a>
-            <span className="no-badge">3</span>
+              <Link to="/cart">
+              <i className="fas fa-shopping-cart icon-md nav-icon"></i
+            >
+            </Link>
+            <span className="no-badge">{cart.length}</span>
           </div>
           <div className="saved-item flex-row">
             <i className="fas fa-sign-in-alt icon-md nav-icon"></i>
