@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
   {
-    _id: uuid(),
+    _id: 1,
     title: "Puma",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647415712/E-commerce/ProductList/Black_Puma_ygnph3.webp",
@@ -17,7 +17,7 @@ export const products = [
     categoryName: "puma",
   },
   {
-    _id: uuid(),
+    _id: 2,
     title: "Nike",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647416495/E-commerce/ProductList/Nike_1_wmptk8.webp",
@@ -27,7 +27,7 @@ export const products = [
     categoryName: "nike",
   },
   {
-    _id: uuid(),
+    _id: 3,
     title: "HRX",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647417516/E-commerce/ProductList/hrx_1_idbaoi.webp",
@@ -37,7 +37,7 @@ export const products = [
     categoryName: "hrx",
   },
   {
-    _id: uuid(),
+    _id: 4,
     title: "Puma",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647415711/E-commerce/ProductList/Blue_Puma_jlsbom.webp",
@@ -47,7 +47,7 @@ export const products = [
     categoryName: "puma",
   },
   {
-    _id: uuid(),
+    _id: 5,
     title: "Nike",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647416494/E-commerce/ProductList/Nike_2_lbts3p.webp",
@@ -57,7 +57,7 @@ export const products = [
     categoryName: "nike",
   },
   {
-    _id: uuid(),
+    _id: 6,
     title: "HRX",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647417516/E-commerce/ProductList/hrx_2_wt3aor.webp",
@@ -67,7 +67,7 @@ export const products = [
     categoryName: "hrx",
   },
   {
-    _id: uuid(),
+    _id: 7,
     title: "Puma",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647415712/E-commerce/ProductList/Black2_puma_tdo8sw.webp",
@@ -77,7 +77,7 @@ export const products = [
     categoryName: "puma",
   },
   {
-    _id: uuid(),
+    _id: 8,
     title: "Nike",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647416494/E-commerce/ProductList/Nike_3_yamyox.webp",
@@ -87,7 +87,7 @@ export const products = [
     categoryName: "nike",
   },
   {
-    _id: uuid(),
+    _id: 9,
     title: "Adidas",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647417991/E-commerce/ProductList/adidas_pugbfc.webp",

@@ -1,8 +1,6 @@
 import "./App.css";
-import logo from "./logo.png";
 import Mockman from "mockman-js";
-import LandingPage from "./pages/LandingPage/Landingpage";
-import ProductList from "./pages/ProductList/ProductList";
+import { LandingPage, Cart, Login, ProductList } from "./pages";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -11,6 +9,8 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/products" element={<ProductList />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );

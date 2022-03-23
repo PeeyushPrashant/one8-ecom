@@ -4,10 +4,22 @@ import Aside from "../../components/Aside/Aside";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { useProductList } from "../../hooks/useProductList";
 import {useFilter} from "../../hooks/useFilter";
-const ProductList= ()=>{
+import {useToken} from "../../hooks/useToken"
+import { useNavigate } from "react-router-dom";
+
+export const ProductList= ()=>{
     const {state}= useProductList();
     const {filterstate}= useFilter();
     const initialProduct= state.initialProduct;
+    const {token}= useToken();
+    const navigate= useNavigate();
+    
+    const addToCartHandler=(id)=>{
+        if(!token)
+         {
+           navigate("/login");
+         }
+    }
 
     const union=(...arr)=>{
       const concatedProducts= arr.reduce((acc,curr)=>acc.concat(curr));
@@ -66,6 +78,8 @@ const ProductList= ()=>{
                          price={price}
                          description={description}
                          rating={rating}
+                         addToCartHandler={()=>addToCartHandler(_id)}
+                          
                           />
                       );
                   })}
@@ -75,4 +89,3 @@ const ProductList= ()=>{
     );
 }
 
-export default ProductList;
