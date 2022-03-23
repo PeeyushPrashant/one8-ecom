@@ -10,15 +10,20 @@ export const Cart=()=>{
     const encodedToken=token;
   
     const removeHandler = async (productId) => {
-   
-      const response = await axios.delete(
-        `/api/user/cart/${productId}`,
-        {
-            headers:{
-              authorization: encodedToken,
-          },
-        }
-      );
+      try{
+        var response = await axios.delete(
+          `/api/user/cart/${productId}`,
+          {
+              headers:{
+                authorization: encodedToken,
+            },
+          }
+        );
+      }
+      catch(error)
+      {
+        console.log(error);
+      }
      
     dispatch({type:"ADD_TO_CART", payload:response.data.cart});
     };
@@ -34,7 +39,7 @@ export const Cart=()=>{
     const decreaseCountHandler = (id) => {
         dispatch({ type:"PRODUCT_COUNT", payload:
         cart.map((item) =>
-          item._id === id ? { ...item, quantity: item.quantity - 1 } : item
+          item._id === id ? { ...item, quantity:item.quantity>1? item.quantity - 1:1 } : item
         )}
       );
     };
