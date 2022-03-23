@@ -1,6 +1,3 @@
-.main {
-  margin: 4rem 0 2rem 0;
-}
 .product-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

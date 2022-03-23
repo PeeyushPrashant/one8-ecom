@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
   {
-    _id: 1,
+    _id: "1",
     title: "Puma",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647415712/E-commerce/ProductList/Black_Puma_ygnph3.webp",
@@ -15,9 +15,10 @@ export const products = [
     price: 800,
     rating: 4.2,
     categoryName: "puma",
+    quantity: 1,
   },
   {
-    _id: 2,
+    _id: "2",
     title: "Nike",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647416495/E-commerce/ProductList/Nike_1_wmptk8.webp",
@@ -25,9 +26,10 @@ export const products = [
     price: 650,
     rating: 3.7,
     categoryName: "nike",
+    quantity: 1,
   },
   {
-    _id: 3,
+    _id: "3",
     title: "HRX",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647417516/E-commerce/ProductList/hrx_1_idbaoi.webp",
@@ -35,9 +37,10 @@ export const products = [
     price: 890,
     rating: 2.5,
     categoryName: "hrx",
+    quantity: 1,
   },
   {
-    _id: 4,
+    _id: "4",
     title: "Puma",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647415711/E-commerce/ProductList/Blue_Puma_jlsbom.webp",
@@ -45,9 +48,10 @@ export const products = [
     price: 400,
     rating: 1.8,
     categoryName: "puma",
+    quantity: 1,
   },
   {
-    _id: 5,
+    _id: "5",
     title: "Nike",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647416494/E-commerce/ProductList/Nike_2_lbts3p.webp",
@@ -55,9 +59,10 @@ export const products = [
     price: 175,
     rating: 4.9,
     categoryName: "nike",
+    quantity: 1,
   },
   {
-    _id: 6,
+    _id: "6",
     title: "HRX",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647417516/E-commerce/ProductList/hrx_2_wt3aor.webp",
@@ -65,9 +70,10 @@ export const products = [
     price: 950,
     rating: 4.4,
     categoryName: "hrx",
+    quantity: 1,
   },
   {
-    _id: 7,
+    _id: "7",
     title: "Puma",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647415712/E-commerce/ProductList/Black2_puma_tdo8sw.webp",
@@ -75,9 +81,10 @@ export const products = [
     price: 200,
     rating: 2.1,
     categoryName: "puma",
+    quantity: 1,
   },
   {
-    _id: 8,
+    _id: "8",
     title: "Nike",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647416494/E-commerce/ProductList/Nike_3_yamyox.webp",
@@ -85,9 +92,10 @@ export const products = [
     price: 350,
     rating: 3.4,
     categoryName: "nike",
+    quantity: 1,
   },
   {
-    _id: 9,
+    _id: "9",
     title: "Adidas",
     image:
       "https://res.cloudinary.com/doohtm4bs/image/upload/v1647417991/E-commerce/ProductList/adidas_pugbfc.webp",
@@ -95,5 +103,6 @@ export const products = [
     price: 990,
     rating: 3.9,
     categoryName: "adidas",
+    quantity: 1,
   },
 ];
