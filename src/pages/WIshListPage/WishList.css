@@ -1,0 +1,11 @@
+.wishlist-heading {
+  margin: 0;
+  text-align: center;
+}
+.wishlist-data {
+  padding: 3rem 1.5rem 2rem;
+  align-items: center;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}

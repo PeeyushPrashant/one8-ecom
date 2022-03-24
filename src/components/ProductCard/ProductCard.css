@@ -18,6 +18,9 @@
   width: 3rem;
   border-radius: 50%;
 }
+.added-wishlist-icon {
+  color: var(--red);
+}
 .sec-2 {
   color: var(--primary);
 }
@@ -40,8 +43,15 @@
 }
 .productCard-button {
   width: 95%;
-  background-color: var(--secondary);
+
   bottom: 0.5rem;
   margin: 0 0.5rem;
   justify-content: center;
+}
+
+.add-cart-btn {
+  background-color: var(--secondary);
+}
+.go-cart-btn {
+  background-color: var(--orange);
 }

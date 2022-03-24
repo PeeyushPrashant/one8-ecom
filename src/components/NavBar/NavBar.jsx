@@ -1,9 +1,12 @@
 import  "./NavBar.css";
 import { Link } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
+import { useWishList } from "../../hooks/useWIshList";
 const NavBar= ()=>{
   const {state}= useCart();
+  const {wishState}= useWishList();
   const cart= state.cartData;
+  const wishList= wishState.wishListData;
     return (
        <nav className="navbar flex-row">
           <Link to="/">
@@ -23,10 +26,10 @@ const NavBar= ()=>{
 
         <div className="saved-item-container flex-row">
           <div className="saved-item flex-row">
-            <a href="/pages/wishlist/wishlist.html"
-              ><i className="fas fa-heart icon-md nav-icon"></i>
-            </a>
-            <span className="no-badge">1</span>
+            <Link to="/wishlist">
+              <i className="fas fa-heart icon-md nav-icon"></i>
+            </Link>
+            <span className="no-badge">{wishList.length}</span>
           </div>
           <div className="saved-item flex-row">
               <Link to="/cart">
