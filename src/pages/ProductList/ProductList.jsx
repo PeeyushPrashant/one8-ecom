@@ -14,13 +14,7 @@ export const ProductList= ()=>{
     const {productState}= useProductList();
     const {filterstate}= useFilter();
     const initialProduct= productState.initialProduct;
-    const {token}= useToken();
-    const {dispatch} = useCart();
-    const {wishDispatch,wished,setWished}= useWishList();
-    const navigate= useNavigate();
     
-    
-
     const union=(...arr)=>{
       const concatedProducts= arr.reduce((acc,curr)=>acc.concat(curr));
       return concatedProducts;

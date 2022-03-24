@@ -66,8 +66,7 @@ const ProductCard=({item})=>{
      else{
        const item= initialProduct.find(element=>element._id===id);
        
-      //  console.log(item);
-       try{
+      try{
               const response= await axios.post('/api/user/cart',{product:item},
               {
                 headers:{
@@ -75,7 +74,7 @@ const ProductCard=({item})=>{
               },
             }
               )
-              //  console.log(response.status);
+             
               if(response.status===201)
               setCarted(true);
               dispatch({type:"ADD_TO_CART", payload:response.data.cart})
