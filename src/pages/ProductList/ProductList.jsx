@@ -7,42 +7,19 @@ import { useProductList } from "../../hooks/useProductList";
 import {useFilter} from "../../hooks/useFilter";
 import {useToken} from "../../hooks/useToken"
 import { useCart } from "../../hooks/useCart";
+import { useWishList } from "../../hooks/useWIshList";
 import { useNavigate } from "react-router-dom";
 
 export const ProductList= ()=>{
-    const {state}= useProductList();
+    const {productState}= useProductList();
     const {filterstate}= useFilter();
-    const initialProduct= state.initialProduct;
+    const initialProduct= productState.initialProduct;
     const {token}= useToken();
     const {dispatch} = useCart();
+    const {wishDispatch,wished,setWished}= useWishList();
     const navigate= useNavigate();
     
-    const addToCartHandler=async(id)=>{
-        if(!token)
-         {
-           navigate("/login");
-         }
-         else{
-           const item= initialProduct.find(element=>element._id===id);
-           const encodedToken= token;
-           console.log(item);
-           try{
-                  const response= await axios.post('/api/user/cart',{product:item},
-                  {
-                    headers:{
-                      authorization: encodedToken,
-                  },
-                }
-                  )
-                  console.log(response.data.cart);
-                  dispatch({type:"ADD_TO_CART", payload:response.data.cart})
-               }
-               catch (error){
-                 console.log(error);
-               }
-        
-         }
-    }
+    
 
     const union=(...arr)=>{
       const concatedProducts= arr.reduce((acc,curr)=>acc.concat(curr));
@@ -93,15 +70,10 @@ export const ProductList= ()=>{
             <main class="main flex-row">
                 <Aside/>
                 <div class="product-container">
-                  {filteredProduct.map(({image,title,price,description,rating,_id})=>{
+                  {filteredProduct.map((item)=>{
                       return (
                           <ProductCard
-                          image={image}
-                          title={title}
-                         price={price}
-                         description={description}
-                         rating={rating}
-                         addToCartHandler={()=>addToCartHandler(_id)}
+                          item={item}
                           
                           />
                       );

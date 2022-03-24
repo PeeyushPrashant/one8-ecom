@@ -7,7 +7,7 @@ const ProductDataProvider = ({ children }) => {
     return { ...state, initialProduct: action };
   };
   const initialData = [];
-  const [state, dispatch] = useReducer(setProduct, {
+  const [productState, dispatch] = useReducer(setProduct, {
     initialProduct: initialData,
   });
 
@@ -18,7 +18,7 @@ const ProductDataProvider = ({ children }) => {
     })();
   }, []);
   return (
-    <ProductContext.Provider value={{ state }}>
+    <ProductContext.Provider value={{ productState }}>
       {children}
     </ProductContext.Provider>
   );
