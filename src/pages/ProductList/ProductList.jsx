@@ -1,14 +1,11 @@
-import axios from "axios";
+
 import NavBar from "../../components/NavBar/NavBar";
 import "./ProductList.css";
 import Aside from "../../components/Aside/Aside";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { useProductList } from "../../hooks/useProductList";
 import {useFilter} from "../../hooks/useFilter";
-import {useToken} from "../../hooks/useToken"
-import { useCart } from "../../hooks/useCart";
-import { useWishList } from "../../hooks/useWIshList";
-import { useNavigate } from "react-router-dom";
+
 
 export const ProductList= ()=>{
     const {productState}= useProductList();

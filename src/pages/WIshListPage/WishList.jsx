@@ -2,13 +2,24 @@ import { useWishList } from "../../hooks/useWIshList"
 import ProductCard from "../../components/ProductCard/ProductCard";
 import NavBar from "../../components/NavBar/NavBar";
 import "./WishList.css";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useAuth } from "../../hooks/useAuth";
 
 export const WishList=()=>{
     const {wishState,wishDispatch}= useWishList();
     const wishList= wishState.wishListData;
-    const addToCartHandler=(id)=>{
+    // const addToCartHandler=(id)=>{
 
-    }
+    // }
+    const navigate=useNavigate();
+    const {token}=useAuth();
+
+    useEffect(()=>{
+      if(!token)
+        navigate("/login");
+    },[])
+    
     return(
     <>
     <NavBar/>
@@ -20,7 +31,7 @@ export const WishList=()=>{
                 <ProductCard
                 
                 item={item}
-                addToCartHandler={()=>addToCartHandler(item._id)}
+                // addToCartHandler={()=>addToCartHandler(item._id)}
                 />
              );
          })}

@@ -2,11 +2,17 @@ import  "./NavBar.css";
 import { Link } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
 import { useWishList } from "../../hooks/useWIshList";
+import { useAuth } from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+
 const NavBar= ()=>{
   const {state}= useCart();
   const {wishState}= useWishList();
   const cart= state.cartData;
   const wishList= wishState.wishListData;
+  const {token,logOutHandler}=useAuth();
+  const navigate=useNavigate();
+
     return (
        <nav className="navbar flex-row">
           <Link to="/">
@@ -38,9 +44,18 @@ const NavBar= ()=>{
             </Link>
             <span className="no-badge">{cart.length}</span>
           </div>
-          <div className="saved-item flex-row">
+          {!token?<div className="saved-item flex-row"
+          onClick={()=>navigate("/login")}
+          >
             <i className="fas fa-sign-in-alt icon-md nav-icon"></i>
-           </div>
+           </div>:
+           <div className="saved-item flex-row"
+           onClick={logOutHandler}
+           >
+           <i class="fas fa-sign-out-alt icon-md nav-icon"></i>
+          </div>
+           }
+          
         </div>
       </nav>
     );

@@ -1,14 +1,19 @@
 import "./Cart.css";
 import axios from "axios";
 import {useCart} from "../../hooks/useCart";
-import {useToken} from "../../hooks/useToken";
+import {useAuth} from "../../hooks/useAuth";
 import NavBar from "../../components/NavBar/NavBar"
+import { ToastHandler } from "../../utils/toastify";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 export const Cart=()=>{
     const {state,dispatch}= useCart();
     const cart=[...state.cartData];
-    const {token}= useToken();
+    const {token}= useAuth();
     const encodedToken=token;
-  
+    const navigate= useNavigate();
+
     const removeHandler = async (productId) => {
       try{
         var response = await axios.delete(
@@ -19,13 +24,15 @@ export const Cart=()=>{
             },
           }
         );
+        dispatch({type:"ADD_TO_CART", payload:response.data.cart});
+        ToastHandler("warn","Item removed successfully");
       }
       catch(error)
       {
         console.log(error);
       }
      
-    dispatch({type:"ADD_TO_CART", payload:response.data.cart});
+    
     };
   
     const increaseCountHandler = (id) => {
@@ -43,6 +50,11 @@ export const Cart=()=>{
         )}
       );
     };
+
+    useEffect(()=>{
+        if(!token)
+         navigate("/login");
+    },[])
   
     return (
         <>
