@@ -1,5 +1,6 @@
-import { createContext, useState, useReducer } from "react";
-
+import { createContext, useState, useReducer, useEffect } from "react";
+import { useAuth } from "../hooks/useAuth";
+import axios from "axios";
 const CartContext = createContext();
 
 const CartReducer = (state, action) => {
@@ -15,6 +16,26 @@ const CartReducer = (state, action) => {
 
 const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(CartReducer, { cartData: [] });
+  const { token } = useAuth();
+
+  useEffect(() => {
+    (async () => {
+      if (token) {
+        console.log("cartContext");
+        const cartListRes = await axios.get("/api/user/cart", {
+          headers: {
+            authorization: token,
+          },
+        });
+        if (cartListRes.status === 200 || cartListRes.status === 201)
+          dispatch({ type: "ADD_TO_CART", payload: cartListRes.data.cart });
+      } else {
+        console.log("cartContext else");
+        dispatch({ type: "ADD_TO_CART", payload: [] });
+      }
+    })();
+  }, [token]);
+
   return (
     <CartContext.Provider value={{ state, dispatch }}>
       {children}

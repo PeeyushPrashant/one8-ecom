@@ -37,7 +37,7 @@ export const SignUp=()=>{
             <div className="auth-input flex-row">
               <label for="" className="input-label"><strong>Email</strong></label>
               <input
-                type="text"
+                type="email"
                 className="input-feild"
                 value={signUpForm.email}
                 placeholder="one8@gmail.com"

@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
   const localStorageToken = JSON.parse(localStorage.getItem("auth"));
   const [token, setToken] = useState(localStorageToken?.token);
   let navigate = useNavigate();
-
+  const [user, setUser] = useState(localStorageToken?.user);
   const loginHandler = async (e, { email, password }, setLoginForm) => {
     try {
       if (e.target.innerText === "Login With Test Credentials") {
@@ -28,14 +28,18 @@ const AuthProvider = ({ children }) => {
         ToastHandler("info", "Successfully logged in");
         localStorage.setItem(
           "auth",
-          JSON.stringify({ token: response.data.encodedToken })
+          JSON.stringify({
+            token: response.data.encodedToken,
+            user: response.data.user,
+          })
         );
 
         setToken(response.data.encodedToken);
+        setUser(response.data.user);
         navigate("/products");
       }
     } catch (error) {
-      alert("Your account doesn't exist");
+      ToastHandler("error", "Your account doesnot exist");
     }
   };
 
@@ -54,10 +58,11 @@ const AuthProvider = ({ children }) => {
           "auth",
           JSON.stringify({
             token: response.data.encodedToken,
+            user: response.data.user,
           })
         );
         setToken(response.data.encodedToken);
-
+        setUser(response.data.user);
         navigate("/products");
       }
     } catch (error) {
@@ -68,12 +73,20 @@ const AuthProvider = ({ children }) => {
   const logOutHandler = () => {
     localStorage.removeItem("auth");
     setToken(undefined);
+    setUser(undefined);
     navigate("/logout");
   };
 
   return (
     <AuthContext.Provider
-      value={{ token, setToken, loginHandler, signUpHandler, logOutHandler }}
+      value={{
+        token,
+        user,
+        setToken,
+        loginHandler,
+        signUpHandler,
+        logOutHandler,
+      }}
     >
       {children}
     </AuthContext.Provider>

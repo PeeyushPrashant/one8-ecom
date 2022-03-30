@@ -21,7 +21,7 @@ export const Login = ()=>{
               <div className="auth-input flex-row">
                 <label for="" className="input-label"><strong>Email</strong></label>
                 <input
-                  type="text"
+                  type="email"
                   className="input-feild"
                   value={loginForm.email}
                   placeholder="Enter your email here"

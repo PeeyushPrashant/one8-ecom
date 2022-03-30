@@ -4,13 +4,16 @@ import {useCart} from "../../hooks/useCart";
 import {useAuth} from "../../hooks/useAuth";
 import NavBar from "../../components/NavBar/NavBar"
 import { ToastHandler } from "../../utils/toastify";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Cart=()=>{
     const {state,dispatch}= useCart();
     const cart=[...state.cartData];
     const {token}= useAuth();
     const encodedToken=token;
-  
+    const navigate= useNavigate();
+
     const removeHandler = async (productId) => {
       try{
         var response = await axios.delete(
@@ -47,6 +50,11 @@ export const Cart=()=>{
         )}
       );
     };
+
+    useEffect(()=>{
+        if(!token)
+         navigate("/login");
+    },[])
   
     return (
         <>
