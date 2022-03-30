@@ -40,14 +40,12 @@
   outline: none;
   border-color: var(--primary);
 }
-.login-btn {
-  width: 90%;
-  background-color: var(--secondary);
-}
-.demo-login {
-  width: 90%;
+
+.auth-btn {
+  width: 95%;
 }
 .auth-footer {
+  cursor: pointer;
   padding: 2rem 0;
   font-size: 1.6rem;
   align-items: center;

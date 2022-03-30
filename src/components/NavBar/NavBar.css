@@ -45,6 +45,7 @@
   margin-right: 4rem;
 }
 .saved-item {
+  cursor: pointer;
   height: 3.5rem;
   align-items: flex-end;
   position: relative;

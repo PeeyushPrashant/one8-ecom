@@ -1,12 +1,14 @@
 import "./Cart.css";
 import axios from "axios";
 import {useCart} from "../../hooks/useCart";
-import {useToken} from "../../hooks/useToken";
+import {useAuth} from "../../hooks/useAuth";
 import NavBar from "../../components/NavBar/NavBar"
+import { ToastHandler } from "../../utils/toastify";
+
 export const Cart=()=>{
     const {state,dispatch}= useCart();
     const cart=[...state.cartData];
-    const {token}= useToken();
+    const {token}= useAuth();
     const encodedToken=token;
   
     const removeHandler = async (productId) => {
@@ -19,13 +21,15 @@ export const Cart=()=>{
             },
           }
         );
+        dispatch({type:"ADD_TO_CART", payload:response.data.cart});
+        ToastHandler("warn","Item removed successfully");
       }
       catch(error)
       {
         console.log(error);
       }
      
-    dispatch({type:"ADD_TO_CART", payload:response.data.cart});
+    
     };
   
     const increaseCountHandler = (id) => {

@@ -2,13 +2,15 @@ import "./ProductCard.css"
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useWishList } from "../../hooks/useWIshList";
-import {useToken} from "../../hooks/useToken"
+import {useAuth} from "../../hooks/useAuth"
 import { useProductList } from "../../hooks/useProductList";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
+import { ToastHandler } from "../../utils/toastify";
+
 const ProductCard=({item})=>{
   
-  const {token}= useToken();
+  const {token}= useAuth();
   const navigate= useNavigate();
   const {wishState,wishDispatch}= useWishList();
   const {productState}= useProductList();
@@ -33,7 +35,7 @@ const ProductCard=({item})=>{
                )
                if(response.status===201)
                setWished(true);
-             
+               ToastHandler("success", "Successfully added to wishlist");
                wishDispatch({type:"ADD_TO_WISHLIST", payload:response.data.wishlist})
             }
             catch (error){
@@ -51,6 +53,7 @@ const ProductCard=({item})=>{
       },)
      if(response.status===200)
        setWished(false);
+       ToastHandler("warn", "Item removed successfully");
       wishDispatch({type:"ADD_TO_WISHLIST", payload:response.data.wishlist})
     }
     catch(error){
@@ -77,6 +80,7 @@ const ProductCard=({item})=>{
              
               if(response.status===201)
               setCarted(true);
+              ToastHandler("success","Successfully added to cart")
               dispatch({type:"ADD_TO_CART", payload:response.data.cart})
            }
            catch (error){

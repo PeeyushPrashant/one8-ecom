@@ -5,7 +5,7 @@ import App from "./App";
 import { makeServer } from "./server";
 import { ProductDataProvider } from "./contexts/Product-context.js";
 import { FilterProvider } from "./contexts/Filter-context.js";
-import { TokenProvider } from "./contexts/Token-context";
+import { AuthProvider } from "./contexts/Auth-context";
 import { CartProvider } from "./contexts/Cart-context";
 import { WishListProvider } from "./contexts/WishList-context";
 import { BrowserRouter } from "react-router-dom";
@@ -18,13 +18,13 @@ ReactDOM.render(
     <BrowserRouter>
       <WishListProvider>
         <CartProvider>
-          <TokenProvider>
+          <AuthProvider>
             <FilterProvider>
               <ProductDataProvider>
                 <App />
               </ProductDataProvider>
             </FilterProvider>
-          </TokenProvider>
+          </AuthProvider>
         </CartProvider>
       </WishListProvider>
     </BrowserRouter>
