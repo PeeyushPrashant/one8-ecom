@@ -5,6 +5,7 @@
 }
 .card-img {
   height: 20rem;
+  cursor: pointer;
 }
 .wishlist-icon {
   left: 21rem;

@@ -116,7 +116,9 @@ return (
                   }
 
                   
-                <img src={item.image} alt="sneaker" className="card-img"/>
+                <img src={item.image} alt="sneaker" className="card-img"
+                onClick={()=>navigate(`/products/${item._id}`)}
+                />
               </section>
               <section class="sec-2">
                 <div className="flex-row title-rating-container">

@@ -1,0 +1,34 @@
+.product-detail-container {
+  padding-top: 6rem;
+  align-items: center;
+  justify-content: center;
+}
+.product-detail-card {
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  height: auto;
+  padding: 1rem;
+  gap: 2rem;
+}
+.card-img-cont {
+  width: 50%;
+}
+.prod-img {
+  overflow: hidden;
+  height: 100%;
+}
+.product-details {
+  gap: 1.5rem;
+  width: 50%;
+}
+.heading-tag {
+  margin: 0;
+}
+.product-brand {
+  align-items: center;
+  gap: 1rem;
+}
+.cta-buttons {
+  gap: 1rem;
+}
