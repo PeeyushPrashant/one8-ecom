@@ -124,7 +124,12 @@ return (
                 <p className="product-rating">{item.rating} <i className="fas fa-star"></i></p>
                 </div>
                 
-                <p className="price-tag"><strong>Rs. {item.price}</strong></p>
+                <p className="price-tag"><strong>Rs. {item.price}{" "}
+                <span className="deleted-price">
+                    <del>Rs. {item.originalPrice}</del>
+                </span>
+                </strong>
+                </p>
               </section>
             </div>
 

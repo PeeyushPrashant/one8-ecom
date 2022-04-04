@@ -29,9 +29,8 @@ export const WishList=()=>{
          {wishList.map((item)=>{
              return(
                 <ProductCard
-                
                 item={item}
-                // addToCartHandler={()=>addToCartHandler(item._id)}
+        
                 />
              );
          })}

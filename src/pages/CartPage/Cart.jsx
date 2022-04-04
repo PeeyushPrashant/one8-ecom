@@ -79,11 +79,11 @@ export const Cart=()=>{
                       <strong>
                         {item.price}{" "}
                         <span className="deleted-price">
-                          <del>Rs. 2000</del>
+                          <del>Rs. {item.originalPrice}</del>
                         </span>
                       </strong>
                     </p>
-                    <span className="discount">40% off</span>
+                    <span className="discount">{item.discount}% OFF</span>
                     <section className="product-count flex-row">
                       <p>Quantity:</p>
                       <p
