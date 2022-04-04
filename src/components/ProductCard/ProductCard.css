@@ -38,6 +38,9 @@
 .price-tag {
   color: var(--black);
 }
+.deleted-price {
+  color: var(--grey-medium);
+}
 .sec4 {
   border-radius: 0.1rem solid var(--secondary);
 }
