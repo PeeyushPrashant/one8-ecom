@@ -1,11 +1,14 @@
 import { createContext, useReducer, useEffect } from "react";
+import { useAuth } from "../hooks/useAuth";
 import axios from "axios";
 const ProductContext = createContext();
 
+const setProduct = (state, action) => {
+  return { ...state, initialProduct: action };
+};
+
 const ProductDataProvider = ({ children }) => {
-  const setProduct = (state, action) => {
-    return { ...state, initialProduct: action };
-  };
+  const { token } = useAuth();
   const initialData = [];
   const [productState, dispatch] = useReducer(setProduct, {
     initialProduct: initialData,
@@ -17,6 +20,7 @@ const ProductDataProvider = ({ children }) => {
       dispatch(response.data.products);
     })();
   }, []);
+
   return (
     <ProductContext.Provider value={{ productState }}>
       {children}

@@ -17,7 +17,8 @@ export const ProductDetails=()=>{
    const navigate= useNavigate();
    const initialProduct= productState.initialProduct;
    const item= initialProduct.find((ele)=>ele._id===productId);
-
+   const {_id,title,description,price,image}= item || {}
+   
    const addToCartHandler=async(id)=>{
     if(!token)
      {
@@ -58,39 +59,42 @@ useEffect(()=>{
     return(
         <>
         <NavBar/>
-        <div className="product-detail-container flex-row">
-        <div className="card product-detail-card">
-            <div className="card-img-cont">
-               <img src={item.image} alt="sneaker" className="prod-img"/>
-            </div>
-            <div className="product-details flex-col">
-               <h1 className="heading-tag">{item.description}</h1>
-               <h3 className="heading-tag">Rs. {item.price}</h3>
-               <hr className="horizontal-line"/>
-               <section className="flex-row product-brand">
-               <h4 className="heading-tag">Brand:</h4>
-               <p>{item.title}</p>
-               </section>
-               <h3 className="heading-tag">Description:</h3>
-               <section>
-                   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla vel eligendi 
-                    error asperiores quaerat fuga eveniet culpa. Voluptatibus, possimus perspiciatis.</p>
-               </section>
-               <footer className="flex-row cta-buttons">
-               {!carted?<button className="btn btn-primary"
-              onClick={()=>addToCartHandler(item._id)}
-              >Add to Cart</button>:
-              
-              <button className="btn  go-cart-btn "
-              onClick={goToCart}
-              >Go to Cart</button>
-              }
-
-                  <button className="btn btn-icon">Buy Now</button>
-               </footer>
-            </div>
-        </div>
-        </div>
+        {_id && (
+             <div className="product-detail-container flex-row">
+             <div className="card product-detail-card">
+                 <div className="card-img-cont">
+                    <img src={image} alt="sneaker" className="prod-img"/>
+                 </div>
+                 <div className="product-details flex-col">
+                    <h1 className="heading-tag">{description}</h1>
+                    <h3 className="heading-tag">Rs. {price}</h3>
+                    <hr className="horizontal-line"/>
+                    <section className="flex-row product-brand">
+                    <h4 className="heading-tag">Brand:</h4>
+                    <p>{title}</p>
+                    </section>
+                    <h3 className="heading-tag">Description:</h3>
+                    <section>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla vel eligendi 
+                         error asperiores quaerat fuga eveniet culpa. Voluptatibus, possimus perspiciatis.</p>
+                    </section>
+                    <footer className="flex-row cta-buttons">
+                    {!carted?<button className="btn btn-primary"
+                   onClick={()=>addToCartHandler(_id)}
+                   >Add to Cart</button>:
+                   
+                   <button className="btn  go-cart-btn "
+                   onClick={goToCart}
+                   >Go to Cart</button>
+                   }
+     
+                       <button className="btn btn-icon">Buy Now</button>
+                    </footer>
+                 </div>
+             </div>
+             </div>
+        )}
+        
         </>
     );
 }
