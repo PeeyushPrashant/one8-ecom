@@ -25,17 +25,17 @@ const AuthProvider = ({ children }) => {
         var response = await axios.post("/api/auth/login", { email, password });
 
       if (response.status === 200 || response.status === 201) {
-        ToastHandler("info", "Successfully logged in");
+        ToastHandler("success", "Successfully logged in");
         localStorage.setItem(
           "auth",
           JSON.stringify({
             token: response.data.encodedToken,
-            user: response.data.user,
+            user: response.data.foundUser,
           })
         );
 
         setToken(response.data.encodedToken);
-        setUser(response.data.user);
+        setUser(response.data.foundUser);
         navigate("/products");
       }
     } catch (error) {
@@ -53,16 +53,16 @@ const AuthProvider = ({ children }) => {
         });
 
       if (response.status === 201) {
-        ToastHandler("info", "Successfully signed in");
+        ToastHandler("success", "Successfully signed in");
         localStorage.setItem(
           "auth",
           JSON.stringify({
             token: response.data.encodedToken,
-            user: response.data.user,
+            user: response.data.foundUser,
           })
         );
         setToken(response.data.encodedToken);
-        setUser(response.data.user);
+        setUser(response.data.foundUser);
         navigate("/products");
       }
     } catch (error) {
@@ -74,6 +74,7 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("auth");
     setToken(undefined);
     setUser(undefined);
+    ToastHandler("info", "You have been logged out");
     navigate("/logout");
   };
 

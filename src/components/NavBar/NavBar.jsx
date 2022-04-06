@@ -10,7 +10,7 @@ const NavBar= ()=>{
   const {wishState}= useWishList();
   const cart= state.cartData;
   const wishList= wishState.wishListData;
-  const {token,logOutHandler}=useAuth();
+  const {token}=useAuth();
   const navigate=useNavigate();
 
     return (
@@ -47,12 +47,13 @@ const NavBar= ()=>{
           {!token?<div className="saved-item flex-row"
           onClick={()=>navigate("/login")}
           >
-            <i className="fas fa-sign-in-alt icon-md nav-icon"></i>
+            <i class="fas fa-user icon-md nav-icon"></i>
            </div>:
            <div className="saved-item flex-row"
-           onClick={logOutHandler}
+          onClick={()=>navigate("/user_profile")}
            >
-           <i class="fas fa-sign-out-alt icon-md nav-icon"></i>
+             <i class="fas fa-user icon-md nav-icon"></i>
+          
           </div>
            }
           
