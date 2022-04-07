@@ -10,6 +10,7 @@ import {
   LogOut,
   ProductDetails,
   ProfilePage,
+  CheckOut,
 } from "./pages";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -38,6 +39,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/user_profile" element={<ProfilePage />} />
+        <Route path="/checkout" element={<CheckOut />} />
         <Route path="/logout" element={<LogOut />} />
       </Routes>
     </div>
