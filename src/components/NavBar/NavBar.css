@@ -27,7 +27,7 @@
 }
 .search-icon {
   position: absolute;
-  left: 1rem;
+  left: 3rem;
   color: var(--grey-color);
 }
 .nav-input {

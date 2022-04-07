@@ -23,7 +23,7 @@ export const ProfilePage=()=>{
                <section className="user-details flex-col">
                    <div className="user-data flex-row">
                        <h4 className="profile-card-headings">Name:</h4>
-                       <p>{user.firstName}</p>
+                       <p>{user.name}</p>
                    </div>
                    <div className=" user-data flex-row">
                        <h4 className="profile-card-headings">Email:</h4>
