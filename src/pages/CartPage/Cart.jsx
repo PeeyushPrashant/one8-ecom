@@ -144,11 +144,13 @@ export const Cart=()=>{
               </p>
               <hr className="horizontal-line" />
   
-              <a href="/pages/checkout/checkout.html">
-                <button className="btn checkout-btn flex-row">
+              
+                <button className="btn checkout-btn flex-row"
+                onClick={()=>navigate("/checkout")}
+                >
                   Proceed To Checkout
                 </button>
-              </a>
+              
             </div> 
           )}
         </div>
