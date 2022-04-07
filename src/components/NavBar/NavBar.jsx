@@ -4,6 +4,7 @@ import { useCart } from "../../hooks/useCart";
 import { useWishList } from "../../hooks/useWIshList";
 import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import {useFilter} from "../../hooks/useFilter"
 
 const NavBar= ()=>{
   const {state}= useCart();
@@ -11,6 +12,7 @@ const NavBar= ()=>{
   const cart= state.cartData;
   const wishList= wishState.wishListData;
   const {token,logOutHandler}=useAuth();
+  const {dispatch}= useFilter();
   const navigate=useNavigate();
 
     return (
@@ -27,7 +29,13 @@ const NavBar= ()=>{
           </Link>
         <div className="nav-search flex-row">
           <i className="fas fa-search search-icon"></i>
-          <input type="text" className="nav-input" placeholder="Type to search" />
+          <input type="text" className="nav-input" placeholder="Type to search" 
+           onKeyDown={(e)=>{
+            if(e.key === 'Enter' || e.target.value === ''){
+              dispatch({type:"filter", payload:["search",e.target.value]})
+            }
+          }}
+          />
         </div>
 
         <div className="saved-item-container flex-row">
