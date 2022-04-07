@@ -1,7 +1,10 @@
 import "./LandingPage.css"
 import NavBar from "../../components/NavBar/NavBar";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 export const LandingPage= ()=>{
+  const navigate=useNavigate();
 return (
    <div>
      <NavBar/>
@@ -26,14 +29,25 @@ return (
             src="https://res.cloudinary.com/doohtm4bs/image/upload/v1647336355/E-commerce/landingPage/nike-logo_lmbsfw.jpg"
             alt="nike logo"
             className="brand-img"
+            onClick={()=>navigate("/products")}
           />
 
           <img
             src="https://res.cloudinary.com/doohtm4bs/image/upload/v1647336355/E-commerce/landingPage/adidas-logo_o6ltbw.jpg"
             alt="adidas logo"
             className="brand-img"
+            onClick={()=>navigate("/products")}
           />
-          <img src="https://res.cloudinary.com/doohtm4bs/image/upload/v1647336385/E-commerce/landingPage/puma_tgznyt.jpg" alt="puma logo" className="brand-img" />
+          <img src="https://res.cloudinary.com/doohtm4bs/image/upload/v1647336385/E-commerce/landingPage/puma_tgznyt.jpg" 
+          alt="puma logo" className="brand-img"
+          onClick={()=>navigate("/products")}
+          />
+          <img
+            src="https://res.cloudinary.com/doohtm4bs/image/upload/v1649345671/E-commerce/landingPage/hrx_oahtdx.jpg"
+            alt="hrx logo"
+            className="brand-img"
+            onClick={()=>navigate("/products")}
+          />
         </section>
       </main>
     </div>
