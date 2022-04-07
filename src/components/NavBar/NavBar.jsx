@@ -10,7 +10,7 @@ const NavBar= ()=>{
   const {wishState}= useWishList();
   const cart= state.cartData;
   const wishList= wishState.wishListData;
-  const {token}=useAuth();
+  const {token,logOutHandler}=useAuth();
   const navigate=useNavigate();
 
     return (
@@ -50,7 +50,9 @@ const NavBar= ()=>{
             <i class="fas fa-user icon-md nav-icon"></i>
            </div>:
            <div className="saved-item flex-row"
-          onClick={()=>navigate("/user_profile")}
+          onClick={
+            ()=>navigate("/user_profile")
+          }
            >
              <i class="fas fa-user icon-md nav-icon"></i>
           
