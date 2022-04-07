@@ -10,6 +10,7 @@ const FilterProvider = ({ children }) => {
     rating: 0,
     sortByPrice: "",
     maxPrice: 1000,
+    search: "",
   };
 
   const [filterstate, dispatch] = useReducer(filterReducer, {

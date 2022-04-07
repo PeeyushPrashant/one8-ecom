@@ -35,6 +35,10 @@ export const ProductList= ()=>{
         return product.filter((item)=>item.price<=maxPrice)
     }
 
+    const searchFilter=(product,search)=>{
+        return product.filter((item)=>item.categoryName===search.toLowerCase())
+    }
+
     const ratingFilter=(product,rating)=>{
       return product.filter((item)=>item.rating>=rating);
     }
@@ -48,6 +52,8 @@ export const ProductList= ()=>{
     const filterProducts=()=>{
      let data= categoryFilter(initialProduct,filterstate.filter.category);
      data= priceFilter(data,filterstate.filter.maxPrice);
+     if(filterstate.filter.search!="")
+       data= searchFilter(data,filterstate.filter.search)
      if (filterstate.filter.rating)
      data= ratingFilter(data,filterstate.filter.rating);
      if(filterstate.filter.sortByPrice !=="")
