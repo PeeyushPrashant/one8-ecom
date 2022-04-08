@@ -2,9 +2,18 @@ import "./LandingPage.css"
 import NavBar from "../../components/NavBar/NavBar";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import { useFilter } from "../../hooks/useFilter";
 export const LandingPage= ()=>{
   const navigate=useNavigate();
+  const {filterstate,dispatch} = useFilter();
+
+  const setCategory=(e)=>{
+    dispatch({type:"filter",payload:["category",
+    {...filterstate.filter.category,[e.target.alt]:true}
+    ]})
+      navigate("/products")
+  }
+
 return (
    <div>
      <NavBar/>
@@ -27,26 +36,26 @@ return (
         <section className="brands-container flex-row">
           <img
             src="https://res.cloudinary.com/doohtm4bs/image/upload/v1647336355/E-commerce/landingPage/nike-logo_lmbsfw.jpg"
-            alt="nike logo"
+            alt="nike"
             className="brand-img"
-            onClick={()=>navigate("/products")}
+            onClick={setCategory}
           />
 
           <img
             src="https://res.cloudinary.com/doohtm4bs/image/upload/v1647336355/E-commerce/landingPage/adidas-logo_o6ltbw.jpg"
-            alt="adidas logo"
+            alt="adidas"
             className="brand-img"
-            onClick={()=>navigate("/products")}
+            onClick={setCategory}
           />
           <img src="https://res.cloudinary.com/doohtm4bs/image/upload/v1647336385/E-commerce/landingPage/puma_tgznyt.jpg" 
-          alt="puma logo" className="brand-img"
-          onClick={()=>navigate("/products")}
+          alt="puma" className="brand-img"
+          onClick={setCategory}
           />
           <img
             src="https://res.cloudinary.com/doohtm4bs/image/upload/v1649345671/E-commerce/landingPage/hrx_oahtdx.jpg"
-            alt="hrx logo"
+            alt="hrx"
             className="brand-img"
-            onClick={()=>navigate("/products")}
+            onClick={setCategory}
           />
         </section>
       </main>
