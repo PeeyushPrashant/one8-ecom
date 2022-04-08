@@ -106,6 +106,11 @@ return (
           <div class="card relative">
             <div>
               <section className="relative">
+                {item.trending &&  
+                <div className="absolute trending-badge">
+                  <p>Trending</p>
+                </div>
+                }
                 {!wished?<div className="absolute wishlist-icon "
                   onClick={()=>addToWishListHandler(item._id)}
                   ><i className="far fa-heart icon-sm"></i></div>:

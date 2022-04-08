@@ -19,6 +19,13 @@
   width: 3rem;
   border-radius: 50%;
 }
+.trending-badge {
+  background-color: var(--card-title-color);
+  color: var(--white);
+  border-radius: 0 0.3rem 0.3rem 0;
+  padding: 0.1rem 0.4rem;
+  font-weight: 600;
+}
 .added-wishlist-icon {
   color: var(--red);
 }
