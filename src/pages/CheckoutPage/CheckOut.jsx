@@ -45,16 +45,19 @@ export const CheckOut=()=>{
                  <div className="calculate-price flex-row">
                      <p>Price:</p>
                      <p>
-                         Rs.
+                         Rs.{" "}
                      {cart.reduce((acc,curr)=>{
-                         return (acc+ curr.quantity* curr.price)
+                         return (acc+ curr.quantity* curr.originalPrice)
                      },0)}
                      </p>
                  </div>
                  <div className="calculate-price flex-row">
                      <p>Discount:</p>
                      <p>
-                         Rs.500
+                         -Rs.{" "}
+                        {cart.reduce((acc,curr)=>{
+                          return (acc+ curr.quantity*(curr.originalPrice-curr.price))
+                        },0)}
                      </p>
                  </div>
                  <div className="calculate-price flex-row">
@@ -63,7 +66,15 @@ export const CheckOut=()=>{
                  </div>
                  <div className="calculate-price flex-row">
                      <p><strong>Total Amount:</strong></p>
-                     <p>Rs. 10000</p>
+                     <p>Rs.{" "}
+                     {cart.reduce((acc,curr)=>{
+                         return (acc+ curr.quantity* curr.originalPrice)
+                     },0)- 
+                      
+                      cart.reduce((acc,curr)=>{
+                          return (acc+ curr.quantity*(curr.originalPrice-curr.price))
+                        },0)}
+                     </p>
                  </div>
                </section>
                <button className="btn order-btn flex-row">

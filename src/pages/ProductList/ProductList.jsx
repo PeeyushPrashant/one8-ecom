@@ -52,7 +52,7 @@ export const ProductList= ()=>{
     const filterProducts=()=>{
      let data= categoryFilter(initialProduct,filterstate.filter.category);
      data= priceFilter(data,filterstate.filter.maxPrice);
-     if(filterstate.filter.search!="")
+     if(filterstate.filter.search!=="")
        data= searchFilter(data,filterstate.filter.search)
      if (filterstate.filter.rating)
      data= ratingFilter(data,filterstate.filter.rating);
