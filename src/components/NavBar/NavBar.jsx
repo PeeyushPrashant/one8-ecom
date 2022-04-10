@@ -45,11 +45,16 @@ const NavBar= ()=>{
             </Link>
             <span className="no-badge">{wishList.length}</span>
           </div>
-          <div className="saved-item flex-row">
-              <Link to="/cart">
+          <div className="saved-item flex-row"
+          onClick={()=>{
+            if (!token)
+              navigate("/login");
+            else
+             navigate("/cart")
+          }}
+          >
               <i className="fas fa-shopping-cart icon-md nav-icon"></i
             >
-            </Link>
             <span className="no-badge">{cart.length}</span>
           </div>
           {!token?<div className="saved-item flex-row"

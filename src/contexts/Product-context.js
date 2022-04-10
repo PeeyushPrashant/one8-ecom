@@ -4,7 +4,10 @@ import axios from "axios";
 const ProductContext = createContext();
 
 const setProduct = (state, action) => {
-  return { ...state, initialProduct: action };
+  return {
+    ...state,
+    initialProduct: action,
+  };
 };
 
 const ProductDataProvider = ({ children }) => {
@@ -17,6 +20,7 @@ const ProductDataProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       const response = await axios.get("/api/products");
+
       dispatch(response.data.products);
     })();
   }, []);

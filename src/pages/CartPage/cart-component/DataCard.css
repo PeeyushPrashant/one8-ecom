@@ -1,20 +1,3 @@
-.cart-heading {
-  margin: 0;
-  text-align: center;
-}
-.cart {
-  padding-top: 3rem;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
-}
-.cart-container {
-  align-items: flex-start;
-}
-
-.cart-list {
-  gap: 1rem;
-}
 .cart-horizontal {
   background: var(--card-bg);
   padding: 1rem 1rem 1rem 0;
@@ -68,20 +51,4 @@
 }
 .action-btn:hover {
   background-color: var(--red);
-}
-
-.cart-vertical {
-  background: var(--card-bg);
-  padding: 1rem;
-  width: 30rem;
-  border-radius: 1rem;
-  gap: 1rem;
-  box-shadow: 0 0 0.6rem 0 var(--card-shadow);
-}
-.calculate {
-  justify-content: space-between;
-}
-.checkout-btn {
-  width: 100%;
-  background-color: var(--secondary);
 }
