@@ -94,7 +94,7 @@ const DataCard=({item})=>{
                       <strong classNameName="text-center">{item.title}</strong>
                     </p>
                     <p className="item-price">
-                      <strong>
+                      <strong>Rs.{" "}
                         {item.price}{" "}
                         <span className="deleted-price">
                           <del>Rs. {item.originalPrice}</del>

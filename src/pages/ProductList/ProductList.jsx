@@ -36,7 +36,7 @@ export const ProductList= ()=>{
     }
 
     const searchFilter=(product,search)=>{
-        return product.filter((item)=>item.categoryName===search.toLowerCase())
+        return product.filter((item)=>item.categoryName.includes(search.toLowerCase()))
     }
 
     const ratingFilter=(product,rating)=>{

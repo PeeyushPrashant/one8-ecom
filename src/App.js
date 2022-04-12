@@ -12,6 +12,7 @@ import {
   ProfilePage,
   CheckOut,
   Orders,
+  Error,
 } from "./pages";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -43,6 +44,7 @@ function App() {
         <Route path="/checkout" element={<CheckOut />} />
         <Route path="/order" element={<Orders />} />
         <Route path="/logout" element={<LogOut />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
   );

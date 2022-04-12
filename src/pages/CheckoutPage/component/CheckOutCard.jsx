@@ -6,7 +6,7 @@ import { ToastHandler } from "../../../utils/toastify";
 import { useNavigate } from "react-router-dom";
 
 
-const CheckOutCard=()=>{
+const CheckOutCard=({address})=>{
     const {state,dispatch}= useCart();
     const cart=state.cartData;
     const {user}= useAuth();
@@ -42,6 +42,8 @@ const CheckOutCard=()=>{
       };
 
     const displayRazorpay = async () => {
+      if(address)
+      {
         const res = await loadScript(
           'https://checkout.razorpay.com/v1/checkout.js'
         );
@@ -82,6 +84,9 @@ const CheckOutCard=()=>{
         };
         const paymentObject = new window.Razorpay(options);
         paymentObject.open();
+      }
+      else
+      ToastHandler('warn', 'Select an address');
       };
     
 

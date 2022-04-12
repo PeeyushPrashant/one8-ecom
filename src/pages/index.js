@@ -9,3 +9,4 @@ export { ProductDetails } from "./ProductDetails/ProductDetails";
 export { ProfilePage } from "./ProfilePage/ProfilePage";
 export { CheckOut } from "./CheckoutPage/CheckOut";
 export { Orders } from "./OrderPage/Orders";
+export { Error } from "./Error/Error";

@@ -47,7 +47,7 @@ return (
               <p className="bigger-cart-text calculate flex-row">
                 <strong>Total Amount</strong>
                 <strong>
-                  Rs.
+                  Rs.{" "}
                   {cart.reduce((acc, curr) => {
                     return acc + curr.quantity * curr.price;
                   }, 0)}
