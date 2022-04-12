@@ -19,7 +19,6 @@ const ProductDataProvider = ({ children }) => {
   const [loader, setLoader] = useState(false);
 
   useEffect(() => {
-    let id;
     (async () => {
       const response = await axios.get("/api/products");
 
