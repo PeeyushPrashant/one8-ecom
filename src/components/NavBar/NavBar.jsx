@@ -39,11 +39,21 @@ const NavBar= ()=>{
         </div>
 
         <div className="saved-item-container flex-row">
-          <div className="saved-item flex-row">
-            <Link to="/wishlist">
-              <i className="fas fa-heart icon-md nav-icon"></i>
-            </Link>
-            <span className="no-badge">{wishList.length}</span>
+          <div className="navigate-link flex-row"
+          onClick={()=>navigate("/products")}
+          >
+            Explore
+          </div>
+          <div className="saved-item flex-row"
+          onClick={()=>{
+            if (!token)
+              navigate("/login");
+            else
+             navigate("/wishlist")
+          }}
+          >
+           <i className="fas fa-heart icon-md nav-icon"></i>
+           <span className="no-badge">{wishList.length}</span>
           </div>
           <div className="saved-item flex-row"
           onClick={()=>{

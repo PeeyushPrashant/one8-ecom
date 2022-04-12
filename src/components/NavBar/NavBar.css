@@ -41,6 +41,11 @@
   gap: 1.4rem;
   align-items: center;
 }
+.navigate-link {
+  font-size: 1.7rem;
+  cursor: pointer;
+  margin-right: 1.5rem;
+}
 .btn-login {
   margin-right: 4rem;
 }
