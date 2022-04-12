@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useReducer, useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import axios from "axios";
 const ProductContext = createContext();
@@ -16,6 +16,7 @@ const ProductDataProvider = ({ children }) => {
   const [productState, dispatch] = useReducer(setProduct, {
     initialProduct: initialData,
   });
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -26,7 +27,7 @@ const ProductDataProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductContext.Provider value={{ productState }}>
+    <ProductContext.Provider value={{ productState, loader, setLoader }}>
       {children}
     </ProductContext.Provider>
   );
