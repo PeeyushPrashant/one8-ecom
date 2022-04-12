@@ -5,10 +5,11 @@ import Aside from "../../components/Aside/Aside";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { useProductList } from "../../hooks/useProductList";
 import {useFilter} from "../../hooks/useFilter";
+import { useEffect } from "react";
 
 
 export const ProductList= ()=>{
-    const {productState}= useProductList();
+    const {productState,loader,setLoader}= useProductList();
     const {filterstate}= useFilter();
     const initialProduct= productState.initialProduct;
     
@@ -61,6 +62,16 @@ export const ProductList= ()=>{
      return data;
     }
     const filteredProduct= filterProducts();
+
+    useEffect(()=>{
+        setLoader(true);
+        let id= setTimeout(()=>{
+            setLoader(false)
+        },1000)
+
+        return ()=>clearTimeout(id);
+    },[])
+
     return (
         <div>
             <NavBar/>
