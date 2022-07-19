@@ -39,30 +39,45 @@ const NavBar= ()=>{
         </div>
 
         <div className="saved-item-container flex-row">
-          <div className="saved-item flex-row">
-            <Link to="/wishlist">
-              <i className="fas fa-heart icon-md nav-icon"></i>
-            </Link>
-            <span className="no-badge">{wishList.length}</span>
+          <div className="navigate-link flex-row"
+          onClick={()=>navigate("/products")}
+          >
+            Explore
           </div>
-          <div className="saved-item flex-row">
-              <Link to="/cart">
+          <div className="saved-item flex-row"
+          onClick={()=>{
+            if (!token)
+              navigate("/login");
+            else
+             navigate("/wishlist")
+          }}
+          >
+           <i className="fas fa-heart icon-md nav-icon"></i>
+           <span className="no-badge">{wishList.length}</span>
+          </div>
+          <div className="saved-item flex-row"
+          onClick={()=>{
+            if (!token)
+              navigate("/login");
+            else
+             navigate("/cart")
+          }}
+          >
               <i className="fas fa-shopping-cart icon-md nav-icon"></i
             >
-            </Link>
             <span className="no-badge">{cart.length}</span>
           </div>
           {!token?<div className="saved-item flex-row"
           onClick={()=>navigate("/login")}
           >
-            <i class="fas fa-user icon-md nav-icon"></i>
+            <i className="fas fa-user icon-md nav-icon"></i>
            </div>:
            <div className="saved-item flex-row"
           onClick={
             ()=>navigate("/user_profile")
           }
            >
-             <i class="fas fa-user icon-md nav-icon"></i>
+             <i className="fas fa-user icon-md nav-icon"></i>
           
           </div>
            }

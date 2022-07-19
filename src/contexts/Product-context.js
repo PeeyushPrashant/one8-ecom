@@ -1,10 +1,13 @@
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useReducer, useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import axios from "axios";
 const ProductContext = createContext();
 
 const setProduct = (state, action) => {
-  return { ...state, initialProduct: action };
+  return {
+    ...state,
+    initialProduct: action,
+  };
 };
 
 const ProductDataProvider = ({ children }) => {
@@ -13,16 +16,18 @@ const ProductDataProvider = ({ children }) => {
   const [productState, dispatch] = useReducer(setProduct, {
     initialProduct: initialData,
   });
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     (async () => {
       const response = await axios.get("/api/products");
+
       dispatch(response.data.products);
     })();
   }, []);
 
   return (
-    <ProductContext.Provider value={{ productState }}>
+    <ProductContext.Provider value={{ productState, loader, setLoader }}>
       {children}
     </ProductContext.Provider>
   );

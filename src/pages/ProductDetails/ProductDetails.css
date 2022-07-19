@@ -18,6 +18,18 @@
   overflow: hidden;
   height: 100%;
 }
+.wish-icon {
+  left: 25rem;
+  top: 0.4rem;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  background: var(--grey-light);
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+}
 .product-details {
   gap: 1.5rem;
   width: 50%;

@@ -1,0 +1,50 @@
+.order-heading {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+.order-container {
+  padding-top: 2rem;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  border-radius: 0.5rem;
+}
+.order-info {
+  width: 20%;
+}
+.order-status {
+  margin: 0;
+  color: var(--orange);
+}
+.payment-info {
+  gap: 1.5rem;
+}
+.order-card {
+  background: var(--card-bg);
+  padding: 1rem 1rem 1rem 0;
+  width: 20%;
+  height: 17vh;
+  border-radius: 1rem;
+  gap: 2rem;
+  box-shadow: 0 0 0.6rem 0 var(--card-shadow);
+}
+.order-image-cont {
+  width: 40%;
+}
+.order-image {
+  width: 100%;
+  object-fit: contain;
+  overflow: hidden;
+  margin: 0;
+  height: 100%;
+}
+.cart-content {
+  gap: 0.6rem;
+}
+.product-brand {
+  font-size: 1.8rem;
+  color: var(--primary);
+}
+.item-details {
+  font-size: 1.5rem;
+}

@@ -9,16 +9,8 @@ import { useAuth } from "../../hooks/useAuth";
 export const WishList=()=>{
     const {wishState,wishDispatch}= useWishList();
     const wishList= wishState.wishListData;
-    // const addToCartHandler=(id)=>{
-
-    // }
     const navigate=useNavigate();
     const {token}=useAuth();
-
-    useEffect(()=>{
-      if(!token)
-        navigate("/login");
-    },[])
     
     return(
     <>

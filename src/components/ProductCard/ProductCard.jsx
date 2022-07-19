@@ -9,7 +9,7 @@ import { useCart } from "../../hooks/useCart";
 import { ToastHandler } from "../../utils/toastify";
 
 const ProductCard=({item})=>{
-  
+ 
   const {token}= useAuth();
   const navigate= useNavigate();
   const {wishState,wishDispatch}= useWishList();
@@ -24,7 +24,6 @@ const ProductCard=({item})=>{
          navigate("/login");
        }
        else{
-        const item= initialProduct.find(element=>element._id===id);
         try{
                const response= await axios.post('/api/user/wishlist',{product:item},
                {
@@ -33,10 +32,10 @@ const ProductCard=({item})=>{
                },
              }
                )
-               if(response.status===201)
-               setWished(true);
+               if(response.status===201 || response.status===200){
                ToastHandler("success", "Successfully added to wishlist");
                wishDispatch({type:"ADD_TO_WISHLIST", payload:response.data.wishlist})
+               }
             }
             catch (error){
               console.log(error);
@@ -67,9 +66,7 @@ const ProductCard=({item})=>{
        navigate("/login");
      }
      else{
-       const item= initialProduct.find(element=>element._id===id);
-       
-      try{
+       try{
               const response= await axios.post('/api/user/cart',{product:item},
               {
                 headers:{
@@ -79,9 +76,11 @@ const ProductCard=({item})=>{
               )
              
               if(response.status===201)
-              setCarted(true);
+              {
               ToastHandler("success","Successfully added to cart")
               dispatch({type:"ADD_TO_CART", payload:response.data.cart})
+              }
+              
            }
            catch (error){
              console.log(error);
@@ -90,29 +89,34 @@ const ProductCard=({item})=>{
      }
 }
 
+
 const goToCart=()=>{
    navigate("/cart");
 }
   useEffect(()=>{
     if(wishState.wishListData.some((ele)=>ele._id===item._id))
-      setWished(true);
+    setWished(true);
     if(state.cartData.some((ele)=>ele._id===item._id))
     setCarted(true);
-       
-  },[wishState,state])
+},[wishState,state])
 
 return (
     
-          <div class="card relative">
+          <div className="card relative">
             <div>
               <section className="relative">
+                {item.trending &&  
+                <div className="absolute trending-badge">
+                  <p>Trending</p>
+                </div>
+                }
                 {!wished?<div className="absolute wishlist-icon "
                   onClick={()=>addToWishListHandler(item._id)}
                   ><i className="far fa-heart icon-sm"></i></div>:
                   
                   <div className="absolute wishlist-icon "
                   onClick={()=>removeFromWishListHandler(item._id)}
-                  ><i class="fas fa-heart added-wishlist-icon"></i></div>
+                  ><i className="fas fa-heart added-wishlist-icon"></i></div>
                   }
 
                   
@@ -120,12 +124,11 @@ return (
                 onClick={()=>navigate(`/products/${item._id}`)}
                 />
               </section>
-              <section class="sec-2">
+              <section className="sec-2">
                 <div className="flex-row title-rating-container">
                 <h3 className="product-title">{item.title}</h3>
-                <p className="product-rating">{item.rating} <i className="fas fa-star"></i></p>
+                <p className="product-rating">{item.rating}⭐</p>
                 </div>
-                
                 <p className="price-tag"><strong>Rs. {item.price}{" "}
                 <span className="deleted-price">
                     <del>Rs. {item.originalPrice}</del>

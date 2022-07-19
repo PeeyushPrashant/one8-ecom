@@ -1,0 +1,22 @@
+.error-block {
+  margin: auto;
+  height: 600px;
+  width: 50vw;
+  align-items: center;
+  gap: 4rem;
+}
+.error-status {
+  object-fit: cover;
+  width: 60%;
+}
+.error-code {
+  font-size: 11rem;
+}
+.rotate-icon {
+  font-size: 8.5rem;
+}
+.msg {
+  text-align: center;
+  font-size: 1.9rem;
+  width: 75%;
+}

@@ -7,7 +7,7 @@
   width: 25%;
   gap: 2rem;
   height: auto;
-  padding: 0 1rem 1rem;
+  padding: 0 1rem 1rem 2rem;
 }
 .header-tab {
   width: 50%;
@@ -24,6 +24,32 @@
 }
 .profile-card-headings {
   margin: 0;
+}
+.address-container {
+  width: 97%;
+  justify-content: center;
+  gap: 0.2rem;
+  margin: 0.5rem 0;
+}
+.name {
+  margin: 0;
+}
+.address-btn {
+  gap: 1rem;
+}
+.edit-btn {
+  background-color: var(--white);
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 4px 10px;
+}
+.remove-btn {
+  background-color: var(--red);
+  color: var(--white);
+  border-radius: 5px;
+  padding: 4px 10px;
+  cursor: pointer;
+  border: none;
 }
 .user-details {
   gap: 1rem;

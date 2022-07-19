@@ -6,8 +6,11 @@
   --white: white;
   --card-shadow: #adb5bd;
   --red: #cf000f;
+  --backdrop: rgba(63, 61, 70, 0.7);
   --black: black;
   --orange: #f48c06;
+  --light-grey: #e9ecef;
+  --green: rgb(74, 202, 74);
 }
 .main {
   margin: 4rem 0 2rem 0;

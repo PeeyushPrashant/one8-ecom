@@ -1,0 +1,42 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--backdrop);
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.address-form {
+  width: 30%;
+  justify-content: center;
+  gap: 1.3rem;
+  background-color: #f8f8f8;
+  color: var(--black);
+  box-shadow: 0 0 0.6rem 0 var(--card-shadow);
+  border-radius: 5px;
+  padding: 3rem 2rem;
+}
+.form-header {
+  text-align: center;
+}
+.form-input {
+  height: 2.7rem;
+  width: 97%;
+  padding-left: 1rem;
+  border: 0.2rem solid var(--grey-light);
+  border-radius: 0.5rem;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+.form-footer {
+  width: 97%;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}

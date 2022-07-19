@@ -18,6 +18,7 @@ export const products = [
     rating: 4.2,
     categoryName: "puma",
     quantity: 1,
+    trending: true,
   },
   {
     _id: "ef88cc1b-598c-4c6f-b038-6fa9bc0a969f",
@@ -31,6 +32,7 @@ export const products = [
     rating: 3.7,
     categoryName: "nike",
     quantity: 1,
+    trending: true,
   },
   {
     _id: "a6109d5b-3bf5-487c-a137-b8d04e9aa4a6",
@@ -83,6 +85,7 @@ export const products = [
     rating: 4.4,
     categoryName: "hrx",
     quantity: 1,
+    trending: true,
   },
   {
     _id: "775b84e4-8dd2-45d9-881f-467a56de8a68",
@@ -109,6 +112,7 @@ export const products = [
     rating: 3.4,
     categoryName: "nike",
     quantity: 1,
+    trending: true,
   },
   {
     _id: "328066c7-68c6-474e-9d24-c8a1d2445cff",
@@ -161,5 +165,6 @@ export const products = [
     rating: 4.9,
     categoryName: "adidas",
     quantity: 1,
+    trending: true,
   },
 ];

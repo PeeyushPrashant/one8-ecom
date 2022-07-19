@@ -11,13 +11,21 @@ import {
   ProductDetails,
   ProfilePage,
   CheckOut,
+  Orders,
+  Error,
 } from "./pages";
+import Loader from "./components/Loader/Loader";
+import { useProductList } from "./hooks/useProductList";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 function App() {
+  const { loader } = useProductList();
+
   return (
     <div className="App">
+      {loader && <Loader />}
       <ToastContainer
         position="bottom-right"
         autoClose={1000}
@@ -40,7 +48,9 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/user_profile" element={<ProfilePage />} />
         <Route path="/checkout" element={<CheckOut />} />
+        <Route path="/order" element={<Orders />} />
         <Route path="/logout" element={<LogOut />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
   );
