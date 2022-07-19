@@ -19,7 +19,7 @@
   height: 100%;
 }
 .wish-icon {
-  left: 25rem;
+  left: 26rem;
   top: 0.4rem;
   display: flex;
   cursor: pointer;
@@ -31,7 +31,7 @@
   border-radius: 50%;
 }
 .product-details {
-  gap: 1.5rem;
+  gap: 1.3rem;
   width: 50%;
 }
 .heading-tag {

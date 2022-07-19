@@ -101,8 +101,8 @@ const CheckOutCard=({address})=>{
         <div className="card checkout-card">
                <header className="checkout-head">Order Details</header>
                <hr className="horizontal-line"/>
-               <section className="product-details flex-col">
-                   <div className="product-details-head flex-row">
+               <section className="product-detail flex-col">
+                   <div className="product-detail-head flex-row">
                     <h4>Item</h4>
                     <h4>Qty</h4>
                    </div>
