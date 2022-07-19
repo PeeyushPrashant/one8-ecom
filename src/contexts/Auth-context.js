@@ -14,12 +14,12 @@ const AuthProvider = ({ children }) => {
     try {
       if (e.target.innerText === "Login With Test Credentials") {
         setLoginForm({
-          email: "adarshbalika@gmail.com",
-          password: "adarshbalika",
+          email: "prashantpeeyush@gmail.com",
+          password: "Prashant123",
         });
         var response = await axios.post("/api/auth/login", {
-          email: "adarshbalika@gmail.com",
-          password: "adarshbalika",
+          email: "prashantpeeyush@gmail.com",
+          password: "Prashant123",
         });
       } else
         var response = await axios.post("/api/auth/login", { email, password });
