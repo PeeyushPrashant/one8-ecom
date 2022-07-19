@@ -1,13 +1,13 @@
 .error-block {
   margin: auto;
   height: 600px;
-  width: 40vw;
+  width: 50vw;
   align-items: center;
   gap: 4rem;
 }
 .error-status {
-  justify-content: center;
-  gap: 5rem;
+  object-fit: cover;
+  width: 60%;
 }
 .error-code {
   font-size: 11rem;

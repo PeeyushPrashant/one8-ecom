@@ -22,6 +22,7 @@ return (
             {cart.map((item) => {
               return (
                 <DataCard
+                key={item._id}
                 item={item}
                 />
                 ); 

@@ -91,7 +91,7 @@ const DataCard=({item})=>{
                   </div>
                   <div className="cart-content flex-col cart-display">
                     <p className="bigger-cart-text">
-                      <strong classNameName="text-center">{item.title}</strong>
+                      <strong className="text-center">{item.title}</strong>
                     </p>
                     <p className="item-price">
                       <strong>Rs.{" "}

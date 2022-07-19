@@ -102,7 +102,7 @@ const goToCart=()=>{
 
 return (
     
-          <div class="card relative">
+          <div className="card relative">
             <div>
               <section className="relative">
                 {item.trending &&  
@@ -116,7 +116,7 @@ return (
                   
                   <div className="absolute wishlist-icon "
                   onClick={()=>removeFromWishListHandler(item._id)}
-                  ><i class="fas fa-heart added-wishlist-icon"></i></div>
+                  ><i className="fas fa-heart added-wishlist-icon"></i></div>
                   }
 
                   
@@ -124,12 +124,11 @@ return (
                 onClick={()=>navigate(`/products/${item._id}`)}
                 />
               </section>
-              <section class="sec-2">
+              <section className="sec-2">
                 <div className="flex-row title-rating-container">
                 <h3 className="product-title">{item.title}</h3>
-                <p className="product-rating">{item.rating} <i className="fas fa-star"></i></p>
+                <p className="product-rating">{item.rating}⭐</p>
                 </div>
-                
                 <p className="price-tag"><strong>Rs. {item.price}{" "}
                 <span className="deleted-price">
                     <del>Rs. {item.originalPrice}</del>

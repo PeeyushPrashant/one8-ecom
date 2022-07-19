@@ -10,9 +10,7 @@ export const Error=()=>{
      <div className="main">
      <div className="error-block flex-col">
          <section className="error-status flex-row">
-            <div className="error-code">4</div>
-            <i className="far fa-question-circle fa-spin rotate-icon"></i>
-            <div className="error-code">4</div>
+            <img src="https://res.cloudinary.com/doohtm4bs/image/upload/v1657351695/E-commerce/error/ezgif.com-gif-maker_u50cmr.jpg" alt="404 error" />
          </section>
          
         <div className="msg">The page you requested is hiding out in quarantine? 

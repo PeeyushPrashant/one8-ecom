@@ -70,14 +70,14 @@ const NavBar= ()=>{
           {!token?<div className="saved-item flex-row"
           onClick={()=>navigate("/login")}
           >
-            <i class="fas fa-user icon-md nav-icon"></i>
+            <i className="fas fa-user icon-md nav-icon"></i>
            </div>:
            <div className="saved-item flex-row"
           onClick={
             ()=>navigate("/user_profile")
           }
            >
-             <i class="fas fa-user icon-md nav-icon"></i>
+             <i className="fas fa-user icon-md nav-icon"></i>
           
           </div>
            }

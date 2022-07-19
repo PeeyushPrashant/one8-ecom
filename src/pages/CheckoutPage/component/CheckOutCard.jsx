@@ -4,9 +4,12 @@ import { useAuth } from "../../../hooks/useAuth";
 import { useOrder } from "../../../contexts/Order-Context";
 import { ToastHandler } from "../../../utils/toastify";
 import { useNavigate } from "react-router-dom";
-
+import { Coupon } from "../../../components/Coupon/Coupon";
+import { useState } from "react";
 
 const CheckOutCard=({address})=>{
+    const [couponModal,setCouponModal]= useState(false);
+    const [coupon,setCoupon]= useState({discount:0,offer:""});
     const {state,dispatch}= useCart();
     const cart=state.cartData;
     const {user}= useAuth();
@@ -22,7 +25,9 @@ const CheckOutCard=({address})=>{
         return (acc+ curr.quantity*(curr.originalPrice-curr.price))
       },0);
 
-    const totalPrice= price-amtSaved;
+    var totalPrice= price-amtSaved;
+
+    totalPrice= totalPrice- ((coupon.discount*totalPrice)/100.0);
 
     const loadScript = async (url) => {
         return new Promise((resolve) => {
@@ -90,7 +95,9 @@ const CheckOutCard=({address})=>{
       };
     
 
+      console.log(totalPrice);
     return (
+      <>
         <div className="card checkout-card">
                <header className="checkout-head">Order Details</header>
                <hr className="horizontal-line"/>
@@ -113,6 +120,13 @@ const CheckOutCard=({address})=>{
                <hr className="horizontal-line"/>
                <section className="price-details flex-col">
                  <div className="calculate-price flex-row">
+                   <div className="coupon-tag flex-row">
+                    <i className="fa fa-tag"></i>
+                    <h4 >Have a coupon?</h4>
+                   </div>
+                   <button className="edit-btn" onClick={()=>setCouponModal(true)}>Apply</button>
+                 </div>
+                 <div className="calculate-price flex-row">
                      <p>Price:</p>
                      <p>
                          Rs.{" "}
@@ -130,6 +144,13 @@ const CheckOutCard=({address})=>{
                      <p>Delivery charges:</p>
                      <p> Free</p>
                  </div>
+                 {coupon.discount>0 && 
+                 <div className="calculate-price flex-row">
+                     <p className="coupon-offer">{coupon.offer}</p>
+                     <p className="remove-coupon" onClick={()=>setCoupon({discount:0,offer:""})}>
+                       <i class="fas fa-times icon-sm"></i>
+                      </p>
+                 </div>}
                  <div className="calculate-price flex-row">
                      <p><strong>Total Amount:</strong></p>
                      <p>Rs.{" "}
@@ -143,6 +164,13 @@ const CheckOutCard=({address})=>{
                  Place Order
                 </button>
           </div>
+          {couponModal && 
+          <Coupon
+          setCouponModal={setCouponModal}
+          setCoupon={setCoupon}
+          coupon={coupon}
+          />}
+          </>
     )
 }
 

@@ -21,7 +21,6 @@ const WishListProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       if (token) {
-        console.log("wishContext");
         const wishListRes = await axios.get("/api/user/wishlist", {
           headers: {
             authorization: token,
@@ -33,7 +32,6 @@ const WishListProvider = ({ children }) => {
             payload: wishListRes.data.wishlist,
           });
       } else {
-        console.log("wishContext else");
         wishDispatch({ type: "ADD_TO_WISHLIST", payload: [] });
       }
     })();

@@ -21,7 +21,6 @@ const CartProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       if (token) {
-        console.log("cartContext");
         const cartListRes = await axios.get("/api/user/cart", {
           headers: {
             authorization: token,

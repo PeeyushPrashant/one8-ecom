@@ -1,0 +1,32 @@
+.coupon-card {
+  width: 30rem;
+  justify-content: center;
+  gap: 1.7rem;
+  background-color: #f8f8f8;
+  color: var(--black);
+  box-shadow: 0 0 0.6rem 0 var(--card-shadow);
+  border-radius: 5px;
+  padding: 2rem;
+}
+.coupon-header {
+  align-items: center;
+  justify-content: space-between;
+}
+.zero-margin {
+  margin: 0;
+}
+.coupon-option {
+  gap: 1rem;
+  width: 100%;
+}
+.discount-option {
+  border: 2px dotted black;
+  padding: 0.5rem;
+  font-size: 1.7rem;
+}
+.select-coupon {
+  cursor: pointer;
+}
+.apply-btn {
+  width: 100%;
+}

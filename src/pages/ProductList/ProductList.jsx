@@ -72,20 +72,28 @@ export const ProductList= ()=>{
         return ()=>clearTimeout(id);
     },[])
 
+    
+
     return (
         <div>
             <NavBar/>
-            <main class="main flex-row">
+            <main className="main flex-row">
                 <Aside/>
-                <div class="product-container">
-                  {filteredProduct.map((item)=>{
+                <div className="right-cont flex-col">
+                    <h3 className="product-count">{`Showing ${filteredProduct.length} products`}</h3>
+                <div className="product-container">
+                  {filteredProduct.length>0? filteredProduct.map((item)=>{
                       return (
                           <ProductCard
+                          key={item._id}
                           item={item}
                           
                           />
                       );
-                  })}
+                  }):
+                  <h2>No products found</h2>
+                  }
+                </div>
                 </div>
             </main>
         </div>
