@@ -28,11 +28,19 @@
 ## Features -
 - Home Page
 - Product Listing Page
-- Filters
+- Individual Product Page
+- Filter & sort products
+- Search product
 - Cart Management
 - Wishlist Management
+- Address Management
+- Loader
+- Toastify
 - User Profile Page
+- Apply Coupon
 - Checkout Page
+- Payment Gateway integration
+- Orders Page
 - Authentication
     - Login
     - Signup
