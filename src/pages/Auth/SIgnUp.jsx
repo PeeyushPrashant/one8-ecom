@@ -11,21 +11,27 @@ export const SignUp=()=>{
     password:""
   })
   const navigate= useNavigate();
+
+  const handleSubmit=(e)=>{
+      e.preventDefault();
+      signUpHandler(signUpForm);
+  }
   
     return (
         <main className="main">
         <div className="auth-container flex-row">
-          <div className="auth-card flex-col">
+          <form className="auth-card flex-col" onSubmit={handleSubmit}>
             <h1 className="auth-heading">Sign Up</h1>
             <p>
               Fill below form to sign up and enjoy special offers in one8 store
             </p>
             <div className="auth-input flex-row">
-              <label for="" className="input-label"
+              <label htmlFor="username" className="input-label"
                 ><strong>Name</strong></label
               >
               <input
                 type="text"
+                id="username"
                 className="input-feild"
                 value={signUpForm.name}
                 placeholder="Enter your first name"
@@ -35,9 +41,10 @@ export const SignUp=()=>{
             </div>
             
             <div className="auth-input flex-row">
-              <label for="" className="input-label"><strong>Email</strong></label>
+              <label htmlFor="email" className="input-label"><strong>Email</strong></label>
               <input
                 type="email"
+                id="email"
                 className="input-feild"
                 value={signUpForm.email}
                 placeholder="one8@gmail.com"
@@ -46,11 +53,12 @@ export const SignUp=()=>{
               />
             </div>
             <div className="auth-input flex-row">
-              <label for="" className="input-label"
+              <label htmlFor="password" className="input-label"
                 ><strong>Password</strong></label
               >
               <input
                 type="password"
+                id="password"
                 className="input-feild"
                 value={signUpForm.password}
                 placeholder="Enter your new password"
@@ -58,20 +66,8 @@ export const SignUp=()=>{
                 required
               />
             </div>
-            <div className="auth-input flex-row">
-              <label for="" className="input-label"
-                ><strong>Confirm Password</strong></label
-              >
-              <input
-                type="password"
-                className="input-feild"
-                value={signUpForm.password}
-                placeholder="Enter your new password"
-                required
-              />
-            </div>
             <button className="btn btn-secondary auth-btn"
-            onClick={()=>signUpHandler(signUpForm)}
+            type="submit"
             >Register</button>
             <div className="auth-footer flex-row"
             onClick={()=>navigate("/login")}
@@ -81,7 +77,7 @@ export const SignUp=()=>{
                 ></i
               >
             </div>
-          </div>
+          </form>
         </div>
       </main>
     );

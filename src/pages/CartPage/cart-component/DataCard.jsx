@@ -74,7 +74,7 @@ const DataCard=({item})=>{
     const decreaseCountHandler = (id) => {
         dispatch({ type:"PRODUCT_COUNT", payload:
         cart.map((item) =>
-          item._id === id ? { ...item, quantity:item.quantity>=1? item.quantity - 1:1 } : item
+          item._id === id ? { ...item, quantity:item.quantity>1? item.quantity - 1:1} : item
         )}
       );
     };

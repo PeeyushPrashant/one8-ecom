@@ -32,7 +32,7 @@ const Coupon=({setCouponModal,setCoupon,coupon})=>{
                          <div className="discount-option">
                         <input type="radio" name="coupon" className="select-coupon"
                         onChange={()=>setSelectedCoupon((curr)=>({...curr,discount:item.discount, offer:item.offer}))}
-                        value={coupon}
+                        value={selectedCoupon}
                         checked={selectedCoupon.offer===item.offer?true:false}
                         /> 
                          {item.discount}% OFF: {item.offer}
