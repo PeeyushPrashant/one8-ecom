@@ -24,8 +24,6 @@ const AuthProvider = ({ children }) => {
       } else
         var response = await axios.post("/api/auth/login", { email, password });
 
-      console.log(response);
-
       if (response.status === 200 || response.status === 201) {
         ToastHandler("success", "Successfully logged in");
         localStorage.setItem(
@@ -54,7 +52,6 @@ const AuthProvider = ({ children }) => {
           name,
         });
 
-      console.log(response);
       if (response.status === 201) {
         ToastHandler("success", "Successfully signed in");
         localStorage.setItem(

@@ -8,7 +8,6 @@ const filterReducer = (state, action) => {
       };
       return { ...state, filter: newFilter };
     case "clear":
-      console.log(initialFilter);
       return { ...state, filter: initialFilter };
 
     default:

@@ -10,6 +10,7 @@ export const Login = ()=>{
         password:""
     })
     const navigate= useNavigate();
+
   return(
       <>
       
@@ -19,9 +20,10 @@ export const Login = ()=>{
               <h1 className="auth-heading">Login</h1>
               <p>Please enter your valid email and password.</p>
               <div className="auth-input flex-row">
-                <label for="" className="input-label"><strong>Email</strong></label>
+                <label htmlFor="email" className="input-label"><strong>Email</strong></label>
                 <input
                   type="email"
+                  id="email"
                   className="input-feild"
                   value={loginForm.email}
                   placeholder="Enter your email here"
@@ -30,11 +32,12 @@ export const Login = ()=>{
                 />
               </div>
               <div className="auth-input flex-row">
-                <label for="" className="input-label"
+                <label htmlFor="password" className="input-label"
                   ><strong>Password</strong></label
                 >
                 <input
                   type="password"
+                  id="password"
                   className="input-feild"
                   value={loginForm.password}
                   placeholder="Enter your password"
