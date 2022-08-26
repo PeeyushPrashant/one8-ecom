@@ -45,6 +45,7 @@
     - Login
     - Signup
     - Logout
+- Responsive
    
 ## Demo -
 
