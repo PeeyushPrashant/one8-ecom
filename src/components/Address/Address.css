@@ -11,7 +11,7 @@
 }
 
 .address-form {
-  width: 30%;
+  width: 45rem;
   justify-content: center;
   gap: 1.3rem;
   background-color: #f8f8f8;
@@ -39,4 +39,29 @@
   gap: 2rem;
   justify-content: center;
   align-items: center;
+}
+.form-btn {
+  align-items: center;
+  border-radius: 0.6rem;
+  border: none;
+  cursor: pointer;
+  color: var(--font-color);
+  display: flex;
+  height: 4rem;
+  font-size: 1.5rem;
+  justify-content: center;
+  width: 12rem;
+}
+.cancel-btn {
+  background-color: #dc2626;
+}
+
+@media screen and (max-width: 550px) {
+  .address-form {
+    width: 90%;
+  }
+  .form-btn {
+    width: 9rem;
+    height: 3rem;
+  }
 }

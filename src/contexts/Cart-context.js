@@ -16,6 +16,10 @@ const CartReducer = (state, action) => {
 
 const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(CartReducer, { cartData: [] });
+  const [sideBar, setSideBar] = useState(false);
+  const sideBarHandler = () => {
+    setSideBar((curr) => !curr);
+  };
   const { token } = useAuth();
 
   useEffect(() => {
@@ -36,7 +40,7 @@ const CartProvider = ({ children }) => {
   }, [token]);
 
   return (
-    <CartContext.Provider value={{ state, dispatch }}>
+    <CartContext.Provider value={{ state, dispatch, sideBar, sideBarHandler }}>
       {children}
     </CartContext.Provider>
   );

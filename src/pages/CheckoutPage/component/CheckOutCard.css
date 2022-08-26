@@ -1,5 +1,5 @@
 .checkout-card {
-  width: 23%;
+  width: 35rem;
   height: auto;
 }
 .checkout-head {
@@ -46,4 +46,10 @@
 .remove-coupon {
   cursor: pointer;
   color: var(--red);
+}
+
+@media screen and (max-width: 450px) {
+  .checkout-card {
+    width: 90%;
+  }
 }

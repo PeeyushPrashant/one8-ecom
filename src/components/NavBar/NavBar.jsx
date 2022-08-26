@@ -3,19 +3,24 @@ import { Link } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
 import { useWishList } from "../../hooks/useWIshList";
 import { useAuth } from "../../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import {useFilter} from "../../hooks/useFilter"
+import { useState } from "react";
 
 const NavBar= ()=>{
-  const {state}= useCart();
+  const {state,sideBarHandler}= useCart();
   const {wishState}= useWishList();
   const cart= state.cartData;
   const wishList= wishState.wishListData;
   const {token,logOutHandler}=useAuth();
+  const sampleLocation = useLocation();
+  const path= sampleLocation.pathname;
   const {dispatch}= useFilter();
   const navigate=useNavigate();
+  const [input,setInput]=useState("");
 
     return (
+      <div className="navbar-cont flex-col">
        <nav className="navbar flex-row">
           <Link to="/">
           <div className="nav-heading flex-row">
@@ -27,12 +32,17 @@ const NavBar= ()=>{
             <small className="nav-heading-small">Store</small>
           </div>
           </Link>
+        
         <div className="nav-search flex-row">
           <i className="fas fa-search search-icon"></i>
           <input type="text" className="nav-input" placeholder="Type to search" 
+          value={input}
+          onChange={(e)=>setInput(e.target.value)}
            onKeyDown={(e)=>{
             if(e.key === 'Enter' || e.target.value === ''){
-              dispatch({type:"filter", payload:["search",e.target.value]})
+              dispatch({type:"filter", payload:["search",input]})
+            if ( e.key === 'Enter'  && path !== "/products")
+              navigate("/products")
             }
           }}
           />
@@ -52,7 +62,7 @@ const NavBar= ()=>{
              navigate("/wishlist")
           }}
           >
-           <i className="fas fa-heart icon-md nav-icon"></i>
+           <i className="fas fa-heart nav-icon"></i>
            <span className="no-badge">{wishList.length}</span>
           </div>
           <div className="saved-item flex-row"
@@ -63,27 +73,45 @@ const NavBar= ()=>{
              navigate("/cart")
           }}
           >
-              <i className="fas fa-shopping-cart icon-md nav-icon"></i
+              <i className="fas fa-shopping-cart nav-icon"></i
             >
             <span className="no-badge">{cart.length}</span>
           </div>
-          {!token?<div className="saved-item flex-row"
-          onClick={()=>navigate("/login")}
+          <div className="saved-item flex-row"
+          onClick={()=>{
+            if(!token)
+            navigate("/login")
+            else
+            navigate("/user_profile")
+          }}
           >
-            <i className="fas fa-user icon-md nav-icon"></i>
-           </div>:
-           <div className="saved-item flex-row"
-          onClick={
-            ()=>navigate("/user_profile")
-          }
+            <i className="fas fa-user nav-icon"></i>
+           </div>
+           { path==="/products" && <div className="saved-item  hamburger"
+           onClick={sideBarHandler}
            >
-             <i className="fas fa-user icon-md nav-icon"></i>
-          
-          </div>
-           }
+           <i class="fas fa-bars nav-icon"></i>
+           </div>}
           
         </div>
       </nav>
+      <div className="mobile-nav-container">
+      <div className="mobile-nav-search flex-row">
+          <i className="fas fa-search search-icon"></i>
+          <input type="text" className="nav-input" placeholder="Type to search" 
+          value={input}
+          onChange={(e)=>setInput(e.target.value)}
+           onKeyDown={(e)=>{
+            if(e.key === 'Enter' || e.target.value === ''){
+              dispatch({type:"filter", payload:["search",input]})
+            if ( e.key === 'Enter'  && path !== "/products")
+              navigate("/products")
+            }
+          }}
+          />
+        </div>
+      </div>
+      </div>
     );
 }
 

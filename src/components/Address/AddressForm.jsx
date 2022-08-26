@@ -1,6 +1,6 @@
 import "./Address.css"
 
- const AddressForm=({closeAddressForm,formInput,changeHandler,handleSubmit})=>{
+ const AddressForm=({closeAddressForm,formInput,changeHandler,handleSubmit,dummyHandler})=>{
     return (
         <>
         <div className="backdrop">
@@ -50,8 +50,9 @@ import "./Address.css"
                value={formInput.mobile}
                onChange={(e)=>changeHandler(e)}/>
                <footer className="form-footer flex-row">
-                   <button className="btn btn-icon" onClick={closeAddressForm}>Cancel</button>
-                   <button className="btn btn-primary" type="submit">Save</button>
+                   <button className="form-btn btn-primary" type="submit">Save</button>
+                   <button className="form-btn cancel-btn" onClick={closeAddressForm}>Cancel</button>
+                   <div className="form-btn btn-primary" onClick={dummyHandler}>Dummy</div>
                </footer>
             </form>
         </div>

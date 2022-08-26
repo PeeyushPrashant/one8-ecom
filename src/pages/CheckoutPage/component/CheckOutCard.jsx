@@ -1,5 +1,6 @@
 import "./CheckOutCard.css"
-import { useCart } from "../../../hooks/useCart"
+import axios from "axios";
+import { useCart } from "../../../hooks/useCart";
 import { useAuth } from "../../../hooks/useAuth";
 import { useOrder } from "../../../contexts/Order-Context";
 import { ToastHandler } from "../../../utils/toastify";
@@ -12,7 +13,7 @@ const CheckOutCard=({address})=>{
     const [coupon,setCoupon]= useState({discount:0,offer:""});
     const {state,dispatch}= useCart();
     const cart=state.cartData;
-    const {user}= useAuth();
+    const {user,token}= useAuth();
     const {orderDispatch}= useOrder();
     const navigate= useNavigate();
     const {name,email}= user || {}
@@ -28,6 +29,27 @@ const CheckOutCard=({address})=>{
     var totalPrice= price-amtSaved;
 
     totalPrice= totalPrice- ((coupon.discount*totalPrice)/100.0);
+
+    const clearCart=async (el,token)=>{
+       try {
+        var response = await axios.delete(
+          `/api/user/cart/${el._id}`,
+          {
+              headers:{
+                authorization: token,
+            },
+          }
+        );
+       } catch (error) {
+         console.log(error);
+       }
+    }
+
+    const clearCarts=()=>{
+      cart.forEach((el)=>{
+        clearCart(el,token);
+      })
+    }
 
     const loadScript = async (url) => {
         return new Promise((resolve) => {
@@ -76,6 +98,7 @@ const CheckOutCard=({address})=>{
             orderDispatch({ type: 'ADD_ORDERS', payload: tempObj });
             ToastHandler('success', 'Payment succesfull');
             navigate('/order');
+            clearCarts();
             dispatch({type: "ADD_TO_CART", payload: [] });
           },
           prefill: {

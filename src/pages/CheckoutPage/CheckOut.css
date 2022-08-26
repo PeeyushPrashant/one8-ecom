@@ -2,7 +2,8 @@
   padding-top: 6rem;
   align-items: flex-start;
   justify-content: center;
-  gap: 10rem;
+  gap: 8rem;
+  flex-wrap: wrap;
 }
 .text-center {
   align-items: center;
@@ -10,7 +11,7 @@
 .user-address {
   gap: 1.3rem;
   align-items: center;
-  width: 25%;
+  width: 40rem;
 }
 .address-card {
   height: auto;
@@ -20,4 +21,10 @@
 }
 .address-head {
   gap: 1rem;
+}
+
+@media screen and (max-width: 450px) {
+  .user-address {
+    width: 90%;
+  }
 }

@@ -7,7 +7,10 @@ export const LandingPage= ()=>{
   const navigate=useNavigate();
   const {filterstate,dispatch} = useFilter();
 
-  const setCategory=(e)=>{
+  const setCategory=async(e)=>{
+    console.log(filterstate);
+    const res= await dispatch({type:"clear"});
+    console.log(filterstate);
     dispatch({type:"filter",payload:["category",
     {...filterstate.filter.category,[e.target.alt]:true}
     ]})
@@ -15,7 +18,7 @@ export const LandingPage= ()=>{
   }
 
 return (
-   <div>
+   <>
      <NavBar/>
     <main>
         <div className="home-img-container relative">
@@ -32,7 +35,7 @@ return (
               </Link>
           </section>
         </div>
-        <h1 className="sub-head">Featured Brands in one8 store</h1>
+        <h1 className="sub-head">Featured Brands</h1>
         <section className="brands-container flex-row">
           <img
             src="https://res.cloudinary.com/doohtm4bs/image/upload/v1647336355/E-commerce/landingPage/nike-logo_lmbsfw.jpg"
@@ -59,7 +62,7 @@ return (
           />
         </section>
       </main>
-    </div>
+    </>
 );
 }
 
