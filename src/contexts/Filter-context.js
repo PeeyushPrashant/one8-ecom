@@ -16,6 +16,7 @@ const FilterProvider = ({ children }) => {
   const [filterstate, dispatch] = useReducer(filterReducer, {
     filter: initialFilter,
   });
+  // console.log(filterstate.filter);
   return (
     <FilterContext.Provider value={{ filterstate, dispatch }}>
       {children}

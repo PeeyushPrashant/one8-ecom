@@ -1,10 +1,12 @@
 import "./Aside.css"
 import{useFilter} from "../../hooks/useFilter";
+import { useCart } from "../../hooks/useCart";
 
 const Aside= ()=>{
   const {filterstate,dispatch} = useFilter();
+  const {sideBar} = useCart();
     return (
-        <aside className="filters flex-col">
+        <aside className={sideBar?"showside flex-col":"sidebar flex-col"}>
           <div className="sub-section flex-row">
             <h3 className="heading">Filters</h3>
             <p className="clear-out"
@@ -29,40 +31,44 @@ const Aside= ()=>{
           <ul className="list">
             <li>
               <input type="checkbox" 
+              id="nike"
               checked={filterstate.filter.category.nike}
               onChange={()=>dispatch({type:"filter",payload:["category",
               {...filterstate.filter.category,nike: !filterstate.filter.category.nike}
             ]})}
            
               />
-              <span>Nike</span>
+              <label for="nike">Nike</label>
             </li>
             <li>
               <input type="checkbox"
+              id="adidas"
               checked={filterstate.filter.category.adidas}
               onChange={()=>dispatch({type:"filter",payload:["category",
               {...filterstate.filter.category,adidas: !filterstate.filter.category.adidas}
             ]})}
               />
-              <span>Adidas</span>
+              <label for="adidas">Adidas</label>
             </li>
             <li>
               <input type="checkbox" 
+              id="puma"
               checked={filterstate.filter.category.puma}
               onChange={()=>dispatch({type:"filter",payload:["category",
               {...filterstate.filter.category,puma: !filterstate.filter.category.puma}
             ]})}
               />
-              <span>Puma</span>
+              <label for="puma">Puma</label>
             </li>
             <li>
               <input type="checkbox"
+              id="hrx"
               checked={filterstate.filter.category.hrx}
               onChange={()=>dispatch({type:"filter",payload:["category",
               {...filterstate.filter.category,hrx: !filterstate.filter.category.hrx}
             ]})}
               />
-              <span>HRX</span>
+              <label for="hrx">HRX</label>
             </li>
           </ul>
           <hr className="horizontal-line" />

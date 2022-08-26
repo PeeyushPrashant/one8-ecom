@@ -4,12 +4,10 @@
 }
 .cart {
   padding-top: 3rem;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
-}
-.cart-container {
+  gap: 5rem;
   align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .cart-list {

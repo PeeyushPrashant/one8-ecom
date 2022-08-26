@@ -1,10 +1,11 @@
-.filters {
+.sidebar {
   flex-basis: 25rem;
   padding: 0 3rem;
   gap: 1rem;
-  position: sticky;
+  position: fixed;
   height: 100%;
-  top: 11.5rem;
+  left: 0;
+  /* top: 11.5rem; */
 }
 .sub-section {
   align-items: center;
@@ -29,4 +30,37 @@
   gap: 1rem;
   margin: 0;
   padding-left: 0;
+}
+.showside {
+  flex-basis: 25rem;
+  padding: 0 3rem;
+  gap: 1rem;
+  position: fixed;
+  height: 100%;
+  left: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+  .showside {
+    background-color: var(--white);
+    padding: 1rem 3rem;
+    z-index: 10;
+    top: 7.2rem;
+  }
+}
+@media screen and (max-width: 750px) {
+  .showside {
+    top: 11.2rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .showside {
+    flex-basis: 20rem;
+  }
+  .sub-section {
+    gap: 6rem;
+  }
 }

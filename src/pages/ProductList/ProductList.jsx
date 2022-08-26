@@ -6,9 +6,11 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import { useProductList } from "../../hooks/useProductList";
 import {useFilter} from "../../hooks/useFilter";
 import { useEffect } from "react";
+import { useCart } from "../../hooks/useCart";
 
 
 export const ProductList= ()=>{
+    const {sideBar, sideBarHandler}= useCart();
     const {productState,loader,setLoader}= useProductList();
     const {filterstate}= useFilter();
     const initialProduct= productState.initialProduct;
@@ -79,7 +81,7 @@ export const ProductList= ()=>{
             <NavBar/>
             <main className="main flex-row">
                 <Aside/>
-                <div className="right-cont flex-col">
+                <div className="right-cont flex-col" onClick={sideBar && sideBarHandler}>
                     <h3 className="product-count">{`Showing ${filteredProduct.length} products`}</h3>
                 <div className="product-container">
                   {filteredProduct.length>0? filteredProduct.map((item)=>{

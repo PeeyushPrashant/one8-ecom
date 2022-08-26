@@ -22,7 +22,7 @@ export const SignUp=()=>{
         <div className="auth-container flex-row">
           <form className="auth-card flex-col" onSubmit={handleSubmit}>
             <h1 className="auth-heading">Sign Up</h1>
-            <p>
+            <p className="form-description flex-row">
               Fill below form to sign up and enjoy special offers in one8 store
             </p>
             <div className="auth-input flex-row">

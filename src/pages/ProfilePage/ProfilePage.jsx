@@ -38,6 +38,18 @@ export const ProfilePage=()=>{
         const {name}= e.target;
         setFormInput({...formInput,[name]:e.target.value})
     }
+    const dummyHandler=()=>{
+        setFormInput({...formInput,
+        name:"Admin",
+        street:"Patliputra",
+        city:"Patna",
+        state:"Bihar",
+        country:"India",
+        pincode:"800001",
+        mobile:"6789054321",
+        _id:""
+    })
+    }
     const editHandler=({name,street,city,state,country,pincode,_id,mobile})=>{
         setFormInput((form)=>({...form,
         name,
@@ -156,6 +168,7 @@ export const ProfilePage=()=>{
             closeAddressForm={closeAddressForm}
             formInput={formInput}
             changeHandler={changeHandler}
+            dummyHandler={dummyHandler}
             handleSubmit={handleSubmit}
            />}
         </div>

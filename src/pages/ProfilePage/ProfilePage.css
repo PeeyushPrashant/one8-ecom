@@ -4,7 +4,8 @@
   justify-content: center;
 }
 .profile-card {
-  width: 25%;
+  /* width: 25%; */
+  width: 38rem;
   gap: 2rem;
   height: auto;
   padding: 0 1rem 1rem 2rem;
@@ -60,4 +61,10 @@
 }
 .new-address {
   cursor: pointer;
+}
+
+@media screen and (max-width: 450px) {
+  .profile-card {
+    width: 85%;
+  }
 }

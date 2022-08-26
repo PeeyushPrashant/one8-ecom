@@ -10,7 +10,8 @@
   border-radius: 0.5rem;
 }
 .order-info {
-  width: 20%;
+  width: 100%;
+  align-items: center;
 }
 .order-status {
   margin: 0;
@@ -22,8 +23,8 @@
 .order-card {
   background: var(--card-bg);
   padding: 1rem 1rem 1rem 0;
-  width: 20%;
-  height: 17vh;
+  width: 30rem;
+  height: 13rem;
   border-radius: 1rem;
   gap: 2rem;
   box-shadow: 0 0 0.6rem 0 var(--card-shadow);
