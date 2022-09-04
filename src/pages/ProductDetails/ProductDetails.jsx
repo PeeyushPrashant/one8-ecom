@@ -143,8 +143,14 @@ useEffect(()=>{
                    onClick={goToCart}
                    >Go to Cart</button>
                    }
+                   {!wished?<button className="wishlist-btn"
+                   onClick={()=>addToWishListHandler(_id)}
+                   >Add To WishList</button>:
+                   <button className="wishlist-btn"
+                   onClick={()=>removeFromWishListHandler(_id)}
+                   >Remove From WishList</button>}
      
-                       <button className="btn btn-icon">Buy Now</button>
+                       
                     </footer>
                  </div>
              </div>
